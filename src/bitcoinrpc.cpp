@@ -2889,7 +2889,7 @@ void ThreadRPCServer2(void* parg)
     // Try a dual IPv6/IPv4 socket, falling back to separate IPv4 and IPv6 sockets
     const bool loopback = !mapArgs.count("-rpcallowip");
     asio::ip::address bindAddress = loopback ? asio::ip::address_v6::loopback() : asio::ip::address_v6::any();
-    ip::tcp::endpoint endpoint(bindAddress, GetArg("-rpcport", 56679));
+    ip::tcp::endpoint endpoint(bindAddress, GetArg("-rpcport", 55883));
 
     boost::signals2::signal<void ()> StopRequests;
 
