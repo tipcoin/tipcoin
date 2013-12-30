@@ -23,7 +23,7 @@ class QTableView;
 class QAbstractItemModel;
 class QModelIndex;
 class QProgressBar;
-class QStackedWidget;
+class QStackedWiTIPt;
 class QUrl;
 QT_END_NAMESPACE
 
@@ -35,7 +35,7 @@ class BitcoinGUI : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit BitcoinGUI(QWidget *parent = 0);
+    explicit BitcoinGUI(QWiTIPt *parent = 0);
     ~BitcoinGUI();
 
     /** Set the client model.
@@ -58,11 +58,11 @@ private:
     ClientModel *clientModel;
     WalletModel *walletModel;
 
-    QStackedWidget *centralWidget;
+    QStackedWiTIPt *centralWiTIPt;
 
     OverviewPage *overviewPage;
     MiningPage *miningPage;
-    QWidget *transactionsPage;
+    QWiTIPt *transactionsPage;
     AddressBookPage *addressBookPage;
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
@@ -147,7 +147,7 @@ private slots:
     void gotoHistoryPage();
     /** Switch to address book page */
     void gotoAddressBookPage();
-    /** Switch to receive coins page */
+    /** Switch to Much receive page */
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();

@@ -329,7 +329,7 @@ Ar jūs tikrai norite užšifruoti savo piniginę?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Receive coins</source>
+        <source>&amp;Much receive</source>
         <translation>&amp;R Gautos monetos</translation>
     </message>
     <message>

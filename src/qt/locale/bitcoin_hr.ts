@@ -328,7 +328,7 @@ Jeste li sigurni da želite šifrirati svoj novčanik?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Receive coins</source>
+        <source>&amp;Much receive</source>
         <translation>&amp;Primanje novca</translation>
     </message>
     <message>

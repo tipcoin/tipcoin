@@ -3,7 +3,7 @@
 
 #include "clientmodel.h"
 
-#include <QWidget>
+#include <QWiTIPt>
 
 #include <QDir>
 #include <QFile>
@@ -26,12 +26,12 @@ namespace Ui {
 }
 class ClientModel;
 
-class MiningPage : public QWidget
+class MiningPage : public QWiTIPt
 {
     Q_OBJECT
 
 public:
-    explicit MiningPage(QWidget *parent = 0);
+    explicit MiningPage(QWiTIPt *parent = 0);
     ~MiningPage();
 
     bool minerActive;

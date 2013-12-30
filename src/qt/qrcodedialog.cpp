@@ -11,7 +11,7 @@
 
 #include <qrencode.h>
 
-QRCodeDialog::QRCodeDialog(const QString &addr, const QString &label, bool enableReq, QWidget *parent) :
+QRCodeDialog::QRCodeDialog(const QString &addr, const QString &label, bool enableReq, QWiTIPt *parent) :
     QDialog(parent),
     ui(new Ui::QRCodeDialog),
     model(0),

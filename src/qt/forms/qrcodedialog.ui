@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>QRCodeDialog</class>
- <widget class="QDialog" name="QRCodeDialog">
+ <wiTIPt class="QDialog" name="QRCodeDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
-    <widget class="QLabel" name="lblQRCode">
+    <wiTIPt class="QLabel" name="lblQRCode">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -37,10 +37,10 @@
      <property name="wordWrap">
       <bool>true</bool>
      </property>
-    </widget>
+    </wiTIPt>
    </item>
    <item>
-    <widget class="QPlainTextEdit" name="outUri">
+    <wiTIPt class="QPlainTextEdit" name="outUri">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -59,20 +59,20 @@
      <property name="textInteractionFlags">
       <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
      </property>
-    </widget>
+    </wiTIPt>
    </item>
    <item>
-    <widget class="QWidget" name="widget" native="true">
+    <wiTIPt class="QWiTIPt" name="wiTIPt" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QCheckBox" name="chkReqPayment">
+       <wiTIPt class="QCheckBox" name="chkReqPayment">
         <property name="enabled">
          <bool>true</bool>
         </property>
         <property name="text">
          <string>Request Payment</string>
         </property>
-       </widget>
+       </wiTIPt>
       </item>
       <item>
        <layout class="QFormLayout" name="formLayout">
@@ -80,7 +80,7 @@
          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
         </property>
         <item row="1" column="0">
-         <widget class="QLabel" name="lblLabel">
+         <wiTIPt class="QLabel" name="lblLabel">
           <property name="text">
            <string>Label:</string>
           </property>
@@ -93,13 +93,13 @@
           <property name="buddy">
            <cstring>lnLabel</cstring>
           </property>
-         </widget>
+         </wiTIPt>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lnLabel"/>
+         <wiTIPt class="QLineEdit" name="lnLabel"/>
         </item>
         <item row="2" column="0">
-         <widget class="QLabel" name="lblMessage">
+         <wiTIPt class="QLabel" name="lblMessage">
           <property name="text">
            <string>Message:</string>
           </property>
@@ -112,13 +112,13 @@
           <property name="buddy">
            <cstring>lnMessage</cstring>
           </property>
-         </widget>
+         </wiTIPt>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="lnMessage"/>
+         <wiTIPt class="QLineEdit" name="lnMessage"/>
         </item>
         <item row="0" column="0">
-         <widget class="QLabel" name="lblAmount">
+         <wiTIPt class="QLabel" name="lblAmount">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
             <horstretch>0</horstretch>
@@ -137,10 +137,10 @@
           <property name="buddy">
            <cstring>lnReqAmount</cstring>
           </property>
-         </widget>
+         </wiTIPt>
         </item>
         <item row="0" column="1">
-         <widget class="BitcoinAmountField" name="lnReqAmount">
+         <wiTIPt class="BitcoinAmountField" name="lnReqAmount">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -150,7 +150,7 @@
             <height>0</height>
            </size>
           </property>
-         </widget>
+         </wiTIPt>
         </item>
        </layout>
       </item>
@@ -170,26 +170,26 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="btnSaveAs">
+         <wiTIPt class="QPushButton" name="btnSaveAs">
           <property name="text">
            <string>&amp;Save As...</string>
           </property>
-         </widget>
+         </wiTIPt>
         </item>
        </layout>
       </item>
      </layout>
-    </widget>
+    </wiTIPt>
    </item>
   </layout>
- </widget>
- <customwidgets>
-  <customwidget>
+ </wiTIPt>
+ <customwiTIPts>
+  <customwiTIPt>
    <class>BitcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>bitcoinamountfield.h</header>
-  </customwidget>
- </customwidgets>
+  </customwiTIPt>
+ </customwiTIPts>
  <resources/>
  <connections>
   <connection>

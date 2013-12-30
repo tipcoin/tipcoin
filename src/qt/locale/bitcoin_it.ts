@@ -328,7 +328,7 @@ Si è sicuri di voler cifrare il portamonete?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Receive coins</source>
+        <source>&amp;Much receive</source>
         <translation>&amp;Ricevi monete</translation>
     </message>
     <message>

@@ -1,32 +1,44 @@
-tipcoin (TIP) - a 'faster' version of Litecoin which also uses scrypt.
- - 60 second block targets.
- - 1 000 000 000 total coins
- - difficulty retargets every 1 day
- 
-Development process
-===================
+# tipcoin [TIP, ]
+http://tipcoin.com/
 
-Developers work in their own trees, then submit pull requests when
-they think their feature or bug fix is ready.
+Tipcoin is like Bitcoin and Litecoin, but based on Dogecoin.
+http://tipcoin.com/
 
-The patch will be accepted if there is broad consensus that it is a
-good thing.  Developers should expect to rework and resubmit patches
-if they don't match the project's coding conventions (see coding.txt)
-or are controversial.
+Tipcoin is released under the terms of the MIT license.
 
-The master branch is regularly built and tested, but is not guaranteed
-to be completely stable. Tags are regularly created to indicate new
-official, stable release versions of Litecoin.
 
-Feature branches are created when there are major new features being
-worked on by several people.
+#FAQ
 
-From time to time a pull request will become outdated. If this occurs, and
-the pull is no longer automatically mergeable; a comment on the pull will
-be used to issue a warning of closure. The pull will be closed 15 days
-after the warning if action is not taken by the author. Pull requests closed
-in this manner will have their corresponding issue labeled 'stagnant'.
+# How many tipcoins can exist?
+Total of 100,000,000,000 coins.
 
-Issues with no commits will be given a similar warning, and closed after
-15 days from their last activity. Issues closed in this manner will be 
-labeled 'stale'.
+### How to mine tipcoins?
+Scrypt Proof of Work
+
+1 Minute Block Targets, 1 Hour Diff Readjustments
+
+Special reward system: Random block rewards
+
+1-50,000: 0-1,000,000 tipcoin Reward
+
+50,001 — 100,000: 0-500,000 tipcoin Reward
+
+100,001 — 150,000: 0-250,000 tipcoin Reward
+
+150,001 — 200,000: 0-125,000 tipcoin Reward
+
+200,001 — 250,000: 0-62,500 tipcoin Reward
+
+250,001 - 300,000: 0-31,250 tipcoin Reward
+
+300,000+ — 10,000 Reward (flat)
+
+#Compiling tipcoind
+
+    sudo apt-get install build-essential libssl-dev libdb5.1++-dev libboost-all-dev libqrencode-dev libminiupnpc-dev
+    cd src
+    make -f makefile.unix USE_UPNP=1 USE_IPV6=1 USE_QRCODE=1
+
+#ports
+RPC 55858
+P2P 55859

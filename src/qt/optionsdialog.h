@@ -15,7 +15,7 @@ class OptionsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit OptionsDialog(QWidget *parent = 0);
+    explicit OptionsDialog(QWiTIPt *parent = 0);
     ~OptionsDialog();
 
     void setModel(OptionsModel *model);

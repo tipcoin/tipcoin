@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2011-2012 The Litecoin Developers
+// Copyright (c) 2013 The tipcoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -136,7 +137,7 @@ double GetDifficulty(const CBlockIndex* blockindex = NULL)
 int64 AmountFromValue(const Value& value)
 {
     double dAmount = value.get_real();
-    if (dAmount <= 0.0 || dAmount > 84000000.0)
+    if (dAmount <= 0.0 || dAmount > 500000000.0)
         throw JSONRPCError(-3, "Invalid amount");
     int64 nAmount = roundint64(dAmount * COIN);
     if (!MoneyRange(nAmount))
@@ -312,7 +313,7 @@ Value getdifficulty(const Array& params, bool fHelp)
 }
 
 
-// Litecoin: Return average network hashes per second based on last number of blocks.
+// tipcoin: Return average network hashes per second based on last number of blocks.
 Value GetNetworkHashPS(int lookup) {
     if (pindexBest == NULL)
         return 0;
@@ -541,7 +542,7 @@ Value setaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount <tipcoin address> <account>\n"
+            "setaccount <tipcoinaddress> <account>\n"
             "Sets the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
@@ -571,7 +572,7 @@ Value getaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount <tipcoin address>\n"
+            "getaccount <tipcoinaddress>\n"
             "Returns the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
@@ -643,7 +644,7 @@ Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendtoaddress <tipcoin address> <amount> [comment] [comment-to]\n"
+            "sendtoaddress <tipcoinaddress> <amount> [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
@@ -675,7 +676,7 @@ Value signmessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage <tipcoin address> <message>\n"
+            "signmessage <tipcoinaddress> <message>\n"
             "Sign a message with the private key of an address");
 
     EnsureWalletIsUnlocked();
@@ -710,7 +711,7 @@ Value verifymessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "verifymessage <tipcoin address> <signature> <message>\n"
+            "verifymessage <tipcoinaddress> <signature> <message>\n"
             "Verify a signed message");
 
     string strAddress  = params[0].get_str();
@@ -747,8 +748,8 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress <tipcoin address> [minconf=1]\n"
-            "Returns the total amount received by <tipcoin address> in transactions with at least [minconf] confirmations.");
+            "getreceivedbyaddress <tipcoinaddress> [minconf=1]\n"
+            "Returns the total amount received by <tipcoinaddress> in transactions with at least [minconf] confirmations.");
 
     // tipcoin address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
@@ -968,7 +969,7 @@ Value sendfrom(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom <fromaccount> <to tipcoin address> <amount> [minconf=1] [comment] [comment-to]\n"
+            "sendfrom <fromaccount> <totipcoinaddress> <amount> [minconf=1] [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
@@ -1098,7 +1099,7 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     {
         const std::string& ks = keys[i].get_str();
 
-        // Case 1: tipcoin address and we have full public key:
+        // Case 1:Testecoin address and we have full public key:
         CBitcoinAddress address(ks);
         if (address.IsValid())
         {
@@ -1832,8 +1833,8 @@ Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "validateaddress <tipcoin address>\n"
-            "Return information about <tipcoin address>.");
+            "validateaddress <tipcoinaddress>\n"
+            "Return information about <tipcoinaddress>.");
 
     CBitcoinAddress address(params[0].get_str());
     bool isValid = address.IsValid();
@@ -1859,6 +1860,8 @@ Value validateaddress(const Array& params, bool fHelp)
 
 Value getworkex(const Array& params, bool fHelp)
 {
+	printf(">>> In getworkex ....\n");
+
     if (fHelp || params.size() > 2)
         throw runtime_error(
             "getworkex [data, coinbase]\n"
@@ -1866,10 +1869,10 @@ Value getworkex(const Array& params, bool fHelp)
         );
 
     if (vNodes.empty())
-        throw JSONRPCError(-9, "tipcoin server is not connected!");
+        throw JSONRPCError(-9, "tipcoin is not connected!!!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(-10, "tipcoin server is downloading blocks...");
+        throw JSONRPCError(-10, "tipcoin is downloading blocks...");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;
@@ -1998,10 +2001,10 @@ Value getwork(const Array& params, bool fHelp)
             "If [data] is specified, tries to solve the block and returns true if it was successful.");
 
     if (vNodes.empty())
-        throw JSONRPCError(-9, "tipcoin server is not connected!");
+        throw JSONRPCError(-9, "tipcoin is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(-10, "tipcoin server is downloading blocks...");
+        throw JSONRPCError(-10, "tipcoin is downloading blocks...");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;    // FIXME: thread safety
@@ -2061,7 +2064,7 @@ Value getwork(const Array& params, bool fHelp)
         result.push_back(Pair("data",     HexStr(BEGIN(pdata), END(pdata))));
         result.push_back(Pair("hash1",    HexStr(BEGIN(phash1), END(phash1)))); // deprecated
         result.push_back(Pair("target",   HexStr(BEGIN(hashTarget), END(hashTarget))));
-        result.push_back(Pair("algorithm", "scrypt:1024,1,1"));  // specify that we should use the scrypt algorithm
+        result.push_back(Pair("algorithm", "scrypt:1024,1,1"));  // tipcoin: specify that we should use the scrypt algorithm
         return result;
     }
     else
@@ -2130,10 +2133,10 @@ Value getblocktemplate(const Array& params, bool fHelp)
     if (strMode == "template")
     {
         if (vNodes.empty())
-            throw JSONRPCError(-9, "tipcoin server is not connected!");
+            throw JSONRPCError(-9, "tipcoin is not connected!");
 
         if (IsInitialBlockDownload())
-            throw JSONRPCError(-10, "tipcoin server is downloading blocks...");
+            throw JSONRPCError(-10, "tipcoin is downloading blocks...");
 
         static CReserveKey reservekey(pwalletMain);
 
@@ -2843,7 +2846,7 @@ void ThreadRPCServer2(void* parg)
     {
         unsigned char rand_pwd[32];
         RAND_bytes(rand_pwd, 32);
-        string strWhatAmI = "To use tipcoin";
+        string strWhatAmI = "To use tipcoind";
         if (mapArgs.count("-server"))
             strWhatAmI = strprintf(_("To use the %s option"), "\"-server\"");
         else if (mapArgs.count("-daemon"))
@@ -2889,7 +2892,7 @@ void ThreadRPCServer2(void* parg)
     // Try a dual IPv6/IPv4 socket, falling back to separate IPv4 and IPv6 sockets
     const bool loopback = !mapArgs.count("-rpcallowip");
     asio::ip::address bindAddress = loopback ? asio::ip::address_v6::loopback() : asio::ip::address_v6::any();
-    ip::tcp::endpoint endpoint(bindAddress, GetArg("-rpcport", 55883));
+    ip::tcp::endpoint endpoint(bindAddress, GetArg("-rpcport", 55858));
 
     boost::signals2::signal<void ()> StopRequests;
 
@@ -3165,7 +3168,7 @@ Object CallRPC(const string& strMethod, const Array& params)
     asio::ssl::stream<asio::ip::tcp::socket> sslStream(io_service, context);
     SSLIOStreamDevice<asio::ip::tcp> d(sslStream, fUseSSL);
     iostreams::stream< SSLIOStreamDevice<asio::ip::tcp> > stream(d);
-    if (!d.connect(GetArg("-rpcconnect", "127.0.0.1"), GetArg("-rpcport", "55883")))
+    if (!d.connect(GetArg("-rpcconnect", "127.0.0.1"), GetArg("-rpcport", "55858")))
         throw runtime_error("couldn't connect to server");
 
     // HTTP basic authentication

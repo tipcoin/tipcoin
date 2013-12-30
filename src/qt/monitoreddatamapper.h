@@ -1,25 +1,25 @@
 #ifndef MONITOREDDATAMAPPER_H
 #define MONITOREDDATAMAPPER_H
 
-#include <QDataWidgetMapper>
+#include <QDataWiTIPtMapper>
 
 QT_BEGIN_NAMESPACE
-class QWidget;
+class QWiTIPt;
 QT_END_NAMESPACE
 
-/** Data to Widget mapper that watches for edits and notifies listeners when a field is edited.
+/** Data to WiTIPt mapper that watches for edits and notifies listeners when a field is edited.
    This can be used, for example, to enable a commit/apply button in a configuration dialog.
  */
-class MonitoredDataMapper : public QDataWidgetMapper
+class MonitoredDataMapper : public QDataWiTIPtMapper
 {
     Q_OBJECT
 public:
     explicit MonitoredDataMapper(QObject *parent=0);
 
-    void addMapping(QWidget *widget, int section);
-    void addMapping(QWidget *widget, int section, const QByteArray &propertyName);
+    void addMapping(QWiTIPt *wiTIPt, int section);
+    void addMapping(QWiTIPt *wiTIPt, int section, const QByteArray &propertyName);
 private:
-    void addChangeMonitor(QWidget *widget);
+    void addChangeMonitor(QWiTIPt *wiTIPt);
 
 signals:
     void viewModified();

@@ -16,7 +16,7 @@ class SignVerifyMessageDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit SignVerifyMessageDialog(QWidget *parent = 0);
+    explicit SignVerifyMessageDialog(QWiTIPt *parent = 0);
     ~SignVerifyMessageDialog();
 
     void setModel(WalletModel *model);

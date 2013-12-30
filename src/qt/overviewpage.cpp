@@ -89,8 +89,8 @@ public:
 };
 #include "overviewpage.moc"
 
-OverviewPage::OverviewPage(QWidget *parent) :
-    QWidget(parent),
+OverviewPage::OverviewPage(QWiTIPt *parent) :
+    QWiTIPt(parent),
     ui(new Ui::OverviewPage),
     currentBalance(-1),
     currentUnconfirmedBalance(-1),
@@ -175,7 +175,7 @@ void OverviewPage::setModel(WalletModel *model)
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
     }
 
-    // update the display unit, to not use the default ("TIP")
+    // update the display unit, to not use the default ("BEL")
     updateDisplayUnit();
 }
 

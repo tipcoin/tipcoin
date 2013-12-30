@@ -5,21 +5,26 @@ INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE BOOST_THREAD_PROVIDES_GENERIC_SHARED_MUTEX_ON_WIN __NO_SYSTEM_INCLUDES
 CONFIG += no_include_pwd
 
-# UNCOMMENT THIS SECTION TO BUILD ON WINDOWS
-# Change paths if needed, these use the tipcoin/deps.git repository locations
-
 windows:LIBS += -lshlwapi
 LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
 LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
 windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
-LIBS += -lboost_system-mgw46-mt-sd-1_53 -lboost_filesystem-mgw46-mt-sd-1_53 -lboost_program_options-mgw46-mt-sd-1_53 -lboost_thread-mgw46-mt-sd-1_53
-BOOST_LIB_SUFFIX=-mgw46-mt-sd-1_53
-BOOST_INCLUDE_PATH=C:/deps/boost_1_53_0
-BOOST_LIB_PATH=C:/deps/boost_1_53_0/libs
+#LIBS += -lboost_system-mgw46-mt-sd-1_53 -lboost_filesystem-mgw46-mt-sd-1_53 -lboost_program_options-mgw46-mt-sd-1_53 -lboost_thread-mgw46-mt-sd-1_53
+#BOOST_LIB_SUFFIX=-mgw46-mt-sd-1_53
+LIBS += -lboost_system -lboost_filesystem -lboost_program_options -lboost_thread
+BOOST_LIB_SUFFIX=
+BOOST_INCLUDE_PATH=C:/deps/boost
+BOOST_LIB_PATH=C:/deps/boost/stage/lib
 BDB_INCLUDE_PATH=c:/deps/db/build_unix
 BDB_LIB_PATH=c:/deps/db/build_unix
 OPENSSL_INCLUDE_PATH=c:/deps/ssl/include
 OPENSSL_LIB_PATH=c:/deps/ssl
+MINIUPNPC_LIB_PATH=c:/deps/miniupnpc
+MINIUPNPC_INCLUDE_PATH=c:/deps
+
+OBJECTS_DIR = build
+MOC_DIR = build
+UI_DIR = build
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -38,9 +43,21 @@ contains(RELEASE, 1) {
     }
 }
 
-# qmake "USE_UPNP=-" (not supported)
+# use: qmake "USE_UPNP=1" ( enabled by default; default)
+#  or: qmake "USE_UPNP=0" (disabled by default)
+#  or: qmake "USE_UPNP=-" (not supported)
+# miniupnpc (http://miniupnp.free.fr/files/) must be installed for support
 contains(USE_UPNP, -) {
     message(Building without UPNP support)
+} else {
+    message(Building with UPNP support)
+    count(USE_UPNP, 0) {
+        USE_UPNP=1
+    }
+    DEFINES += USE_UPNP=$$USE_UPNP STATICLIB
+    INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
+    LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
+    win32:LIBS += -liphlpapi
 }
 
 # use: qmake "USE_QRCODE=1"
@@ -48,7 +65,7 @@ contains(USE_UPNP, -) {
 contains(USE_QRCODE, 1) {
     message(Building with QRCode support)
     DEFINES += USE_QRCODE
-    LIBS += -lqrencode
+    LIBS += -lqrencode -lpthread
 }
 
 # use: qmake "USE_DBUS=1"
@@ -66,7 +83,7 @@ contains(FIRST_CLASS_MESSAGING, 1) {
 
 contains(BITCOIN_NEED_QT_PLUGINS, 1) {
     DEFINES += BITCOIN_NEED_QT_PLUGINS
-    QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
+    QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewiTIPts
 }
 
 !windows {

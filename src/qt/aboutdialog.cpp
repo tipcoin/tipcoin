@@ -4,7 +4,7 @@
 
 #include "version.h"
 
-AboutDialog::AboutDialog(QWidget *parent) :
+AboutDialog::AboutDialog(QWiTIPt *parent) :
     QDialog(parent),
     ui(new Ui::AboutDialog)
 {

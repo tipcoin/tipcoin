@@ -5,7 +5,7 @@
 
 class QMenu;
 class QIcon;
-class QWidget;
+class QWiTIPt;
 class objc_object;
 
 /** Macintosh-specific dock icon handler.
@@ -32,7 +32,7 @@ private:
     MacDockIconHandler();
 
     objc_object *m_dockIconClickEventHandler;
-    QWidget *m_dummyWidget;
+    QWiTIPt *m_dummyWiTIPt;
     QMenu *m_dockMenu;
 };
 

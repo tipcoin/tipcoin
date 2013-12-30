@@ -328,7 +328,7 @@ Cüzdanınızı şifrelemek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Receive coins</source>
+        <source>&amp;Much receive</source>
         <translation>Bitcoin &amp;al</translation>
     </message>
     <message>

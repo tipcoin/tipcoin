@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>TransactionDescDialog</class>
- <widget class="QDialog" name="TransactionDescDialog">
+ <wiTIPt class="QDialog" name="TransactionDescDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,27 +15,27 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QTextEdit" name="detailText">
+    <wiTIPt class="QTextEdit" name="detailText">
      <property name="toolTip">
       <string>This pane shows a detailed description of the transaction</string>
      </property>
      <property name="readOnly">
       <bool>true</bool>
      </property>
-    </widget>
+    </wiTIPt>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <wiTIPt class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Close</set>
      </property>
-    </widget>
+    </wiTIPt>
    </item>
   </layout>
- </widget>
+ </wiTIPt>
  <resources/>
  <connections>
   <connection>

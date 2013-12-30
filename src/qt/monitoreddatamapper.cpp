@@ -1,36 +1,36 @@
 #include "monitoreddatamapper.h"
 
-#include <QWidget>
+#include <QWiTIPt>
 #include <QMetaObject>
 #include <QMetaProperty>
 
 MonitoredDataMapper::MonitoredDataMapper(QObject *parent) :
-    QDataWidgetMapper(parent)
+    QDataWiTIPtMapper(parent)
 {
 }
 
 
-void MonitoredDataMapper::addMapping(QWidget *widget, int section)
+void MonitoredDataMapper::addMapping(QWiTIPt *wiTIPt, int section)
 {
-    QDataWidgetMapper::addMapping(widget, section);
-    addChangeMonitor(widget);
+    QDataWiTIPtMapper::addMapping(wiTIPt, section);
+    addChangeMonitor(wiTIPt);
 }
 
-void MonitoredDataMapper::addMapping(QWidget *widget, int section, const QByteArray &propertyName)
+void MonitoredDataMapper::addMapping(QWiTIPt *wiTIPt, int section, const QByteArray &propertyName)
 {
-    QDataWidgetMapper::addMapping(widget, section, propertyName);
-    addChangeMonitor(widget);
+    QDataWiTIPtMapper::addMapping(wiTIPt, section, propertyName);
+    addChangeMonitor(wiTIPt);
 }
 
-void MonitoredDataMapper::addChangeMonitor(QWidget *widget)
+void MonitoredDataMapper::addChangeMonitor(QWiTIPt *wiTIPt)
 {
-    // Watch user property of widget for changes, and connect
+    // Watch user property of wiTIPt for changes, and connect
     //  the signal to our viewModified signal.
-    QMetaProperty prop = widget->metaObject()->userProperty();
+    QMetaProperty prop = wiTIPt->metaObject()->userProperty();
     int signal = prop.notifySignalIndex();
     int method = this->metaObject()->indexOfMethod("viewModified()");
     if(signal != -1 && method != -1)
     {
-        QMetaObject::connect(widget, signal, this, method);
+        QMetaObject::connect(wiTIPt, signal, this, method);
     }
 }

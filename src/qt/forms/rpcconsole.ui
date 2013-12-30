@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>RPCConsole</class>
- <widget class="QDialog" name="RPCConsole">
+ <wiTIPt class="QDialog" name="RPCConsole">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,11 +15,11 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <widget class="QTabWidget" name="tabWidget">
+    <wiTIPt class="QTabWiTIPt" name="tabWiTIPt">
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="tab_info">
+     <wiTIPt class="QWiTIPt" name="tab_info">
       <attribute name="title">
        <string>&amp;Information</string>
       </attribute>
@@ -28,7 +28,7 @@
         <number>12</number>
        </property>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_9">
+        <wiTIPt class="QLabel" name="label_9">
          <property name="font">
           <font>
            <weight>75</weight>
@@ -38,17 +38,17 @@
          <property name="text">
           <string>Bitcoin Core</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_5">
+        <wiTIPt class="QLabel" name="label_5">
          <property name="text">
           <string>Client name</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="clientName">
+        <wiTIPt class="QLabel" name="clientName">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -61,17 +61,17 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_6">
+        <wiTIPt class="QLabel" name="label_6">
          <property name="text">
           <string>Client version</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="2" column="1">
-        <widget class="QLabel" name="clientVersion">
+        <wiTIPt class="QLabel" name="clientVersion">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -84,20 +84,20 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_14">
+        <wiTIPt class="QLabel" name="label_14">
          <property name="text">
           <string>Using OpenSSL version</string>
          </property>
          <property name="indent">
           <number>10</number>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="openSSLVersion">
+        <wiTIPt class="QLabel" name="openSSLVersion">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -110,17 +110,17 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="label_12">
+        <wiTIPt class="QLabel" name="label_12">
          <property name="text">
           <string>Build date</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="4" column="1">
-        <widget class="QLabel" name="buildDate">
+        <wiTIPt class="QLabel" name="buildDate">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -133,17 +133,17 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="label_13">
+        <wiTIPt class="QLabel" name="label_13">
          <property name="text">
           <string>Startup time</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="5" column="1">
-        <widget class="QLabel" name="startupTime">
+        <wiTIPt class="QLabel" name="startupTime">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -156,10 +156,10 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="label_11">
+        <wiTIPt class="QLabel" name="label_11">
          <property name="font">
           <font>
            <weight>75</weight>
@@ -169,17 +169,17 @@
          <property name="text">
           <string>Network</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="7" column="0">
-        <widget class="QLabel" name="label_7">
+        <wiTIPt class="QLabel" name="label_7">
          <property name="text">
           <string>Number of connections</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="7" column="1">
-        <widget class="QLabel" name="numberOfConnections">
+        <wiTIPt class="QLabel" name="numberOfConnections">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -192,27 +192,27 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="8" column="0">
-        <widget class="QLabel" name="label_8">
+        <wiTIPt class="QLabel" name="label_8">
          <property name="text">
           <string>On testnet</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="8" column="1">
-        <widget class="QCheckBox" name="isTestNet">
+        <wiTIPt class="QCheckBox" name="isTestNet">
          <property name="enabled">
           <bool>false</bool>
          </property>
          <property name="text">
           <string/>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="9" column="0">
-        <widget class="QLabel" name="label_10">
+        <wiTIPt class="QLabel" name="label_10">
          <property name="font">
           <font>
            <weight>75</weight>
@@ -222,17 +222,17 @@
          <property name="text">
           <string>Block chain</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="10" column="0">
-        <widget class="QLabel" name="label_3">
+        <wiTIPt class="QLabel" name="label_3">
          <property name="text">
           <string>Current number of blocks</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="10" column="1">
-        <widget class="QLabel" name="numberOfBlocks">
+        <wiTIPt class="QLabel" name="numberOfBlocks">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -245,17 +245,17 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="11" column="0">
-        <widget class="QLabel" name="label_4">
+        <wiTIPt class="QLabel" name="label_4">
          <property name="text">
           <string>Estimated total blocks</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="11" column="1">
-        <widget class="QLabel" name="totalBlocks">
+        <wiTIPt class="QLabel" name="totalBlocks">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -268,17 +268,17 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="12" column="0">
-        <widget class="QLabel" name="label_2">
+        <wiTIPt class="QLabel" name="label_2">
          <property name="text">
           <string>Last block time</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="12" column="1">
-        <widget class="QLabel" name="lastBlockTime">
+        <wiTIPt class="QLabel" name="lastBlockTime">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -291,7 +291,7 @@
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="13" column="0">
         <spacer name="verticalSpacer_2">
@@ -307,7 +307,7 @@
         </spacer>
        </item>
        <item row="14" column="0">
-        <widget class="QLabel" name="labelDebugLogfile">
+        <wiTIPt class="QLabel" name="labelDebugLogfile">
          <property name="font">
           <font>
            <weight>75</weight>
@@ -317,10 +317,10 @@
          <property name="text">
           <string>Debug logfile</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="15" column="0">
-        <widget class="QPushButton" name="openDebugLogfileButton">
+        <wiTIPt class="QPushButton" name="openDebugLogfileButton">
          <property name="toolTip">
           <string>Open the tipcoin debug logfile from the current data directory. This can take a few seconds for large logfiles.</string>
          </property>
@@ -330,10 +330,10 @@
          <property name="autoDefault">
           <bool>false</bool>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="16" column="0">
-        <widget class="QLabel" name="labelCLOptions">
+        <wiTIPt class="QLabel" name="labelCLOptions">
          <property name="font">
           <font>
            <weight>75</weight>
@@ -343,12 +343,12 @@
          <property name="text">
           <string>Command-line options</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="17" column="0">
-        <widget class="QPushButton" name="showCLOptionsButton">
+        <wiTIPt class="QPushButton" name="showCLOptionsButton">
          <property name="toolTip">
-          <string>Show the tipcoin-qt help message to get a list with possible command-line options.</string>
+          <string>Show the tipcoin-Qt help message to get a list with possible tipcoin command-line options.</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>
@@ -359,7 +359,7 @@
          <property name="autoDefault">
           <bool>false</bool>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item row="18" column="0">
         <spacer name="verticalSpacer">
@@ -375,8 +375,8 @@
         </spacer>
        </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="tab_console">
+     </wiTIPt>
+     <wiTIPt class="QWiTIPt" name="tab_console">
       <attribute name="title">
        <string>&amp;Console</string>
       </attribute>
@@ -385,7 +385,7 @@
         <number>3</number>
        </property>
        <item>
-        <widget class="QTextEdit" name="messagesWidget">
+        <wiTIPt class="QTextEdit" name="messagesWiTIPt">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -401,7 +401,7 @@
          <property name="columnCount" stdset="0">
           <number>2</number>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -409,17 +409,17 @@
           <number>3</number>
          </property>
          <item>
-          <widget class="QLabel" name="label">
+          <wiTIPt class="QLabel" name="label">
            <property name="text">
             <string notr="true">&gt;</string>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <wiTIPt class="QLineEdit" name="lineEdit"/>
          </item>
          <item>
-          <widget class="QPushButton" name="clearButton">
+          <wiTIPt class="QPushButton" name="clearButton">
            <property name="maximumSize">
             <size>
              <width>24</width>
@@ -442,16 +442,16 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
         </layout>
        </item>
       </layout>
-     </widget>
-    </widget>
+     </wiTIPt>
+    </wiTIPt>
    </item>
   </layout>
- </widget>
+ </wiTIPt>
  <resources>
   <include location="../bitcoin.qrc"/>
  </resources>

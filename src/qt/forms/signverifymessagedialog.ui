@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>SignVerifyMessageDialog</class>
- <widget class="QDialog" name="SignVerifyMessageDialog">
+ <wiTIPt class="QDialog" name="SignVerifyMessageDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -18,17 +18,17 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QTabWidget" name="tabWidget">
+    <wiTIPt class="QTabWiTIPt" name="tabWiTIPt">
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="tabSignMessage">
+     <wiTIPt class="QWiTIPt" name="tabSignMessage">
       <attribute name="title">
        <string>&amp;Sign Message</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_SM">
        <item>
-        <widget class="QLabel" name="infoLabel_SM">
+        <wiTIPt class="QLabel" name="infoLabel_SM">
          <property name="text">
           <string>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</string>
          </property>
@@ -38,7 +38,7 @@
          <property name="wordWrap">
           <bool>true</bool>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_1_SM">
@@ -46,17 +46,17 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QValidatedLineEdit" name="addressIn_SM">
+          <wiTIPt class="QValidatedLineEdit" name="addressIn_SM">
            <property name="toolTip">
             <string>The address to sign the message with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</string>
            </property>
            <property name="maxLength">
             <number>34</number>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
-          <widget class="QPushButton" name="addressBookButton_SM">
+          <wiTIPt class="QPushButton" name="addressBookButton_SM">
            <property name="toolTip">
             <string>Choose an address from the address book</string>
            </property>
@@ -73,10 +73,10 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
-          <widget class="QPushButton" name="pasteButton_SM">
+          <wiTIPt class="QPushButton" name="pasteButton_SM">
            <property name="toolTip">
             <string>Paste address from clipboard</string>
            </property>
@@ -93,16 +93,16 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QPlainTextEdit" name="messageIn_SM">
+        <wiTIPt class="QPlainTextEdit" name="messageIn_SM">
          <property name="toolTip">
           <string>Enter the message you want to sign here</string>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2_SM">
@@ -110,7 +110,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="signatureOut_SM">
+          <wiTIPt class="QLineEdit" name="signatureOut_SM">
            <property name="font">
             <font>
              <italic>true</italic>
@@ -119,10 +119,10 @@
            <property name="readOnly">
             <bool>true</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
-          <widget class="QPushButton" name="copySignatureButton_SM">
+          <wiTIPt class="QPushButton" name="copySignatureButton_SM">
            <property name="toolTip">
             <string>Copy the current signature to the system clipboard</string>
            </property>
@@ -136,14 +136,14 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3_SM">
          <item>
-          <widget class="QPushButton" name="signMessageButton_SM">
+          <wiTIPt class="QPushButton" name="signMessageButton_SM">
            <property name="toolTip">
             <string>Sign the message to prove you own this Bitcoin address</string>
            </property>
@@ -157,10 +157,10 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
-          <widget class="QPushButton" name="clearButton_SM">
+          <wiTIPt class="QPushButton" name="clearButton_SM">
            <property name="toolTip">
             <string>Reset all sign message fields</string>
            </property>
@@ -174,7 +174,7 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
           <spacer name="horizontalSpacer_1_SM">
@@ -190,7 +190,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="statusLabel_SM">
+          <wiTIPt class="QLabel" name="statusLabel_SM">
            <property name="font">
             <font>
              <weight>75</weight>
@@ -203,7 +203,7 @@
            <property name="wordWrap">
             <bool>true</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
           <spacer name="horizontalSpacer_2_SM">
@@ -221,14 +221,14 @@
         </layout>
        </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="tabVerifyMessage">
+     </wiTIPt>
+     <wiTIPt class="QWiTIPt" name="tabVerifyMessage">
       <attribute name="title">
        <string>&amp;Verify Message</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_VM">
        <item>
-        <widget class="QLabel" name="infoLabel_VM">
+        <wiTIPt class="QLabel" name="infoLabel_VM">
          <property name="text">
           <string>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</string>
          </property>
@@ -241,7 +241,7 @@
          <property name="wordWrap">
           <bool>true</bool>
          </property>
-        </widget>
+        </wiTIPt>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_1_VM">
@@ -249,17 +249,17 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QValidatedLineEdit" name="addressIn_VM">
+          <wiTIPt class="QValidatedLineEdit" name="addressIn_VM">
            <property name="toolTip">
             <string>The address the message was signed with (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</string>
            </property>
            <property name="maxLength">
             <number>34</number>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
-          <widget class="QPushButton" name="addressBookButton_VM">
+          <wiTIPt class="QPushButton" name="addressBookButton_VM">
            <property name="toolTip">
             <string>Choose an address from the address book</string>
            </property>
@@ -276,20 +276,20 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QPlainTextEdit" name="messageIn_VM"/>
+        <wiTIPt class="QPlainTextEdit" name="messageIn_VM"/>
        </item>
        <item>
-        <widget class="QValidatedLineEdit" name="signatureIn_VM"/>
+        <wiTIPt class="QValidatedLineEdit" name="signatureIn_VM"/>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2_VM">
          <item>
-          <widget class="QPushButton" name="verifyMessageButton_VM">
+          <wiTIPt class="QPushButton" name="verifyMessageButton_VM">
            <property name="toolTip">
             <string>Verify the message to ensure it was signed with the specified Bitcoin address</string>
            </property>
@@ -303,10 +303,10 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
-          <widget class="QPushButton" name="clearButton_VM">
+          <wiTIPt class="QPushButton" name="clearButton_VM">
            <property name="toolTip">
             <string>Reset all verify message fields</string>
            </property>
@@ -320,7 +320,7 @@
            <property name="autoDefault">
             <bool>false</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
           <spacer name="horizontalSpacer_1_VM">
@@ -336,7 +336,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="statusLabel_VM">
+          <wiTIPt class="QLabel" name="statusLabel_VM">
            <property name="font">
             <font>
              <weight>75</weight>
@@ -349,7 +349,7 @@
            <property name="wordWrap">
             <bool>true</bool>
            </property>
-          </widget>
+          </wiTIPt>
          </item>
          <item>
           <spacer name="horizontalSpacer_2_VM">
@@ -367,18 +367,18 @@
         </layout>
        </item>
       </layout>
-     </widget>
-    </widget>
+     </wiTIPt>
+    </wiTIPt>
    </item>
   </layout>
- </widget>
- <customwidgets>
-  <customwidget>
+ </wiTIPt>
+ <customwiTIPts>
+  <customwiTIPt>
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
-  </customwidget>
- </customwidgets>
+  </customwiTIPt>
+ </customwiTIPts>
  <resources>
   <include location="../bitcoin.qrc"/>
  </resources>

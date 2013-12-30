@@ -327,7 +327,7 @@ Are you sure you wish to encrypt your wallet?</source>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Receive coins</source>
+        <source>&amp;Much receive</source>
         <translation>&amp;Receber moedas</translation>
     </message>
     <message>

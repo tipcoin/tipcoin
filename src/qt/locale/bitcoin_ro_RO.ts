@@ -322,7 +322,7 @@ Sunteţi sigur că doriţi să criptaţi portofelul electronic?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Receive coins</source>
+        <source>&amp;Much receive</source>
         <translation>&amp;Primiţi Bitcoin</translation>
     </message>
     <message>

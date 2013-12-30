@@ -20,14 +20,14 @@ class SendCoinsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit SendCoinsDialog(QWidget *parent = 0);
+    explicit SendCoinsDialog(QWiTIPt *parent = 0);
     ~SendCoinsDialog();
 
     void setModel(WalletModel *model);
 
     /** Set up the tab chain manually, as Qt messes up the tab chain by default in some cases (issue http://bugreports.qt.nokia.com/browse/QTBUG-10907).
      */
-    QWidget *setupTabChain(QWidget *prev);
+    QWiTIPt *setupTabChain(QWiTIPt *prev);
 
     void pasteEntry(const SendCoinsRecipient &rv);
     bool handleURI(const QString &uri);

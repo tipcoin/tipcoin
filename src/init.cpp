@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2011-2012 Litecoin Developers
+// Copyright (c) 2013 tipcoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "db.h"
@@ -123,7 +124,7 @@ bool AppInit(int argc, char* argv[])
         //
         // Parameters
         //
-        // If Qt is used, parameters/litecoin.conf are parsed in qt/bitcoin.cpp's main()
+        // If Qt is used, parameters/tipcoin.conf are parsed in qt/bitcoin.cpp's main()
         ParseParameters(argc, argv);
         if (!boost::filesystem::is_directory(GetDataDir(false)))
         {
@@ -134,13 +135,13 @@ bool AppInit(int argc, char* argv[])
 
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
-            // First part of help message is specific to tipcoin server / RPC client
+            // First part of help message is specific to tipcoind / RPC client
             std::string strUsage = _("tipcoin version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  tipcoin [options]                     " + "\n" +
-                  "  tipcoin [options] <command> [params]  " + _("Send command to -server or tipcoin") + "\n" +
-                  "  tipcoin [options] help                " + _("List commands") + "\n" +
-                  "  tipcoin [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  tipcoind [options]                     " + "\n" +
+                  "  tipcoind [options] <command> [params]  " + _("Send command to -server or tipcoind") + "\n" +
+                  "  tipcoind [options] help                " + _("List commands") + "\n" +
+                  "  tipcoind [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 
@@ -176,7 +177,7 @@ int main(int argc, char* argv[])
 {
     bool fRet = false;
 
-    // Connect signal handlers
+    // Connect tipcoind signal handlers
     noui_connect();
 
     fRet = AppInit(argc, argv);
@@ -213,15 +214,12 @@ bool static Bind(const CService &addr, bool fError = true) {
     return true;
 }
 
-/* import from bitcoinrpc.cpp */
-extern double GetDifficulty(const CBlockIndex* blockindex = NULL);
-
 // Core-specific options shared between UI and daemon
 std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n" +
         "  -conf=<file>           " + _("Specify configuration file (default: tipcoin.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: tipcoin.pid)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: tipcoind.pid)") + "\n" +
         "  -gen                   " + _("Generate coins") + "\n" +
         "  -gen=0                 " + _("Don't generate coins") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
@@ -232,7 +230,7 @@ std::string HelpMessage()
         "  -socks=<n>             " + _("Select the version of socks proxy to use (4-5, default: 5)") + "\n" +
         "  -tor=<ip:port>         " + _("Use proxy to reach tor hidden services (default: same as -proxy)") + "\n"
         "  -dns                   " + _("Allow DNS lookups for -addnode, -seednode and -connect") + "\n" +
-        "  -port=<port>           " + _("Listen for connections on <port> (default: 55884 or testnet: 45884)") + "\n" +
+        "  -port=<port>           " + _("Listen for connections on <port> (default: 55859 or testnet: 88585)") + "\n" +
         "  -maxconnections=<n>    " + _("Maintain at most <n> connections to peers (default: 125)") + "\n" +
         "  -addnode=<ip>          " + _("Add a node to connect to and attempt to keep the connection open") + "\n" +
         "  -connect=<ip>          " + _("Connect only to the specified node(s)") + "\n" +
@@ -274,7 +272,7 @@ std::string HelpMessage()
 #endif
         "  -rpcuser=<user>        " + _("Username for JSON-RPC connections") + "\n" +
         "  -rpcpassword=<pw>      " + _("Password for JSON-RPC connections") + "\n" +
-        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 55883)") + "\n" +
+        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 55858)") + "\n" +
         "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n" +
         "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n" +
         "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n" +
@@ -334,7 +332,7 @@ bool AppInit2()
     // ********************************************************* Step 2: parameter interactions
 
     fTestNet = GetBoolArg("-testnet");
-    // Keep irc seeding on by default for now.
+    // tipcoin: Keep irc seeding on by default for now.
 //    if (fTestNet)
 //    {
         SoftSetBoolArg("-irc", true);
@@ -417,7 +415,7 @@ bool AppInit2()
     {
         if (!ParseMoney(mapArgs["-paytxfee"], nTransactionFee))
             return InitError(strprintf(_("Invalid amount for -paytxfee=<amount>: '%s'"), mapArgs["-paytxfee"].c_str()));
-        if (nTransactionFee > 0.25 * COIN)
+        if (nTransactionFee > 25.0 * COIN)
             InitWarning(_("Warning: -paytxfee is set very high. This is the transaction fee you will pay if you send a transaction."));
     }
 
@@ -625,32 +623,6 @@ bool AppInit2()
         }
         if (nFound == 0)
             printf("No blocks matching %s were found\n", strMatch.c_str());
-        return false;
-    }
-
-    if (mapArgs.count("-exportStatData"))
-    {
-        FILE* file = fopen((GetDataDir() / "blockstat.dat").string().c_str(), "w");
-        if (!file)
-           return false;
-        
-        for (map<uint256, CBlockIndex*>::iterator mi = mapBlockIndex.begin(); mi != mapBlockIndex.end(); ++mi)
-        {
-            CBlockIndex* pindex = (*mi).second;
-            CBlock block;
-            block.ReadFromDisk(pindex);
-            block.BuildMerkleTree();
-            fprintf(file, "%d,%s,%s,%d,%f,%u\n",
-                pindex->nHeight, /* todo: height */
-                block.GetHash().ToString().c_str(),
-                block.GetPoWHash().ToString().c_str(),
-                block.nVersion,
-                //CBigNum().SetCompact(block.nBits).getuint256().ToString().c_str(),
-                GetDifficulty(pindex),
-                block.nTime
-            );
-        }
-        fclose(file);
         return false;
     }
 

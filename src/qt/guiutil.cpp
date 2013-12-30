@@ -55,25 +55,25 @@ QString dateTimeStr(qint64 nTime)
 
 QFont bitcoinAddressFont()
 {
-    QFont font("Monospace");
-    font.setStyleHint(QFont::TypeWriter);
+    QFont font("Cursive");
+    font.setFamily("Comic Sans MS");
     return font;
 }
 
-void setupAddressWidget(QLineEdit *widget, QWidget *parent)
+void setupAddressWiTIPt(QLineEdit *wiTIPt, QWiTIPt *parent)
 {
-    widget->setMaxLength(BitcoinAddressValidator::MaxAddressLength);
-    widget->setValidator(new BitcoinAddressValidator(parent));
-    widget->setFont(bitcoinAddressFont());
+    wiTIPt->setMaxLength(BitcoinAddressValidator::MaxAddressLength);
+    wiTIPt->setValidator(new BitcoinAddressValidator(parent));
+    wiTIPt->setFont(bitcoinAddressFont());
 }
 
-void setupAmountWidget(QLineEdit *widget, QWidget *parent)
+void setupAmountWiTIPt(QLineEdit *wiTIPt, QWiTIPt *parent)
 {
     QDoubleValidator *amountValidator = new QDoubleValidator(parent);
     amountValidator->setDecimals(8);
     amountValidator->setBottom(0.0);
-    widget->setValidator(amountValidator);
-    widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
+    wiTIPt->setValidator(amountValidator);
+    wiTIPt->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
@@ -168,7 +168,7 @@ void copyEntryData(QAbstractItemView *view, int column, int role)
     }
 }
 
-QString getSaveFileName(QWidget *parent, const QString &caption,
+QString getSaveFileName(QWiTIPt *parent, const QString &caption,
                                  const QString &dir,
                                  const QString &filter,
                                  QString *selectedSuffixOut)
@@ -226,14 +226,14 @@ Qt::ConnectionType blockingGUIThreadConnection()
     }
 }
 
-bool checkPoint(const QPoint &p, const QWidget *w)
+bool checkPoint(const QPoint &p, const QWiTIPt *w)
 {
-    QWidget *atW = qApp->widgetAt(w->mapToGlobal(p));
+    QWiTIPt *atW = qApp->wiTIPtAt(w->mapToGlobal(p));
     if (!atW) return false;
-    return atW->topLevelWidget() == w;
+    return atW->topLevelWiTIPt() == w;
 }
 
-bool isObscured(QWidget *w)
+bool isObscured(QWiTIPt *w)
 {
     return !(checkPoint(QPoint(0, 0), w)
         && checkPoint(QPoint(w->width() - 1, 0), w)
@@ -261,14 +261,14 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 {
     if(evt->type() == QEvent::ToolTipChange)
     {
-        QWidget *widget = static_cast<QWidget*>(obj);
-        QString tooltip = widget->toolTip();
+        QWiTIPt *wiTIPt = static_cast<QWiTIPt*>(obj);
+        QString tooltip = wiTIPt->toolTip();
         if(tooltip.size() > size_threshold && !tooltip.startsWith("<qt/>") && !Qt::mightBeRichText(tooltip))
         {
             // Prefix <qt/> to make sure Qt detects this as rich text
             // Escape the current message as HTML and replace \n by <br>
             tooltip = "<qt/>" + HtmlEscape(tooltip, true);
-            widget->setToolTip(tooltip);
+            wiTIPt->setToolTip(tooltip);
             return true;
         }
     }
@@ -419,10 +419,10 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 
 #endif
 
-HelpMessageBox::HelpMessageBox(QWidget *parent) :
+HelpMessageBox::HelpMessageBox(QWiTIPt *parent) :
     QMessageBox(parent)
 {
-    header = tr("tipcoin-qt") + " " + tr("version") + " " +
+    header = tr("tipcoin-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
         "  tipcoin-qt [" + tr("command-line options") + "]                     " + "\n";
@@ -434,7 +434,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("tipcoin-qt"));
+    setWindowTitle(tr("tipcoin-Qt"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in nonbreaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));

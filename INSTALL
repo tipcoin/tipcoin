@@ -1,9 +1,9 @@
 Building tipcoin
 
-See doc/readme-qt.rst for instructions on building tipcoin-qt,
+See doc/readme-qt.rst for instructions on building tipcoin-QT,
 the intended-for-end-users, nice-graphical-interface, reference
 implementation of tipcoin.
 
-See doc/build-*.txt for instructions on building tipcoin,
+See doc/build-*.txt for instructions on building tipcoind,
 the intended-for-services, no-graphical-interface, reference
 implementation of tipcoin.

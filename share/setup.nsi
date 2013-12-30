@@ -76,7 +76,7 @@ Section -Main SEC0000
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
-    # Remove old wxwidgets-based-bitcoin executable and locales:
+    # Remove old wxwiTIPts-based-bitcoin executable and locales:
     Delete /REBOOTOK $INSTDIR\litecoin.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd

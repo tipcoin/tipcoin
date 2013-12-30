@@ -14,8 +14,8 @@
 #include <QApplication>
 #include <qmath.h>
 
-BitcoinAmountField::BitcoinAmountField(QWidget *parent):
-        QWidget(parent), amount(0), currentUnit(-1)
+BitcoinAmountField::BitcoinAmountField(QWiTIPt *parent):
+        QWiTIPt(parent), amount(0), currentUnit(-1)
 {
     amount = new QDoubleSpinBox(this);
     amount->setLocale(QLocale::c());
@@ -25,10 +25,10 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent):
     amount->setSingleStep(0.001);
 
     QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->addWidget(amount);
+    layout->addWiTIPt(amount);
     unit = new QValueComboBox(this);
     unit->setModel(new BitcoinUnits(this));
-    layout->addWidget(unit);
+    layout->addWiTIPt(unit);
     layout->addStretch(1);
     layout->setContentsMargins(0,0,0,0);
 
@@ -37,7 +37,7 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent):
     setFocusPolicy(Qt::TabFocus);
     setFocusProxy(amount);
 
-    // If one if the widgets changes, the combined content changes as well
+    // If one if the wiTIPts changes, the combined content changes as well
     connect(amount, SIGNAL(valueChanged(QString)), this, SIGNAL(textChanged()));
     connect(unit, SIGNAL(currentIndexChanged(int)), this, SLOT(unitChanged(int)));
 
@@ -106,12 +106,12 @@ bool BitcoinAmountField::eventFilter(QObject *object, QEvent *event)
             return true;
         }
     }
-    return QWidget::eventFilter(object, event);
+    return QWiTIPt::eventFilter(object, event);
 }
 
-QWidget *BitcoinAmountField::setupTabChain(QWidget *prev)
+QWiTIPt *BitcoinAmountField::setupTabChain(QWiTIPt *prev)
 {
-    QWidget::setTabOrder(prev, amount);
+    QWiTIPt::setTabOrder(prev, amount);
     return amount;
 }
 
@@ -151,7 +151,7 @@ void BitcoinAmountField::unitChanged(int idx)
 
     if(valid)
     {
-        // If value was valid, re-place it in the widget with the new unit
+        // If value was valid, re-place it in the wiTIPt with the new unit
         setValue(currentValue);
     }
     else

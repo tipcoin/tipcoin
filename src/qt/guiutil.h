@@ -8,14 +8,14 @@
 QT_BEGIN_NAMESPACE
 class QFont;
 class QLineEdit;
-class QWidget;
+class QWiTIPt;
 class QDateTime;
 class QUrl;
 class QAbstractItemView;
 QT_END_NAMESPACE
 class SendCoinsRecipient;
 
-/** Utility functions used by the tipcoin-qt UI.
+/** Utility functions used by the tipcoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -23,12 +23,12 @@ namespace GUIUtil
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
 
-    // Render addresses in monospace font
+    // Render tipcoin addresses in monospace font
     QFont bitcoinAddressFont();
 
-    // Set up widgets for address and amounts
-    void setupAddressWidget(QLineEdit *widget, QWidget *parent);
-    void setupAmountWidget(QLineEdit *widget, QWidget *parent);
+    // Set up wiTIPts for address and amounts
+    void setupAddressWiTIPt(QLineEdit *wiTIPt, QWiTIPt *parent);
+    void setupAmountWiTIPt(QLineEdit *wiTIPt, QWiTIPt *parent);
 
     // Parse "tipcoin:" URI into recipient object, return true on succesful parsing
     // See Bitcoin URI definition discussion here: https://bitcointalk.org/index.php?topic=33490.0
@@ -57,7 +57,7 @@ namespace GUIUtil
       @param[out] selectedSuffixOut  Pointer to return the suffix (file type) that was selected (or 0).
                   Can be useful when choosing the save file format based on suffix.
      */
-    QString getSaveFileName(QWidget *parent=0, const QString &caption=QString(),
+    QString getSaveFileName(QWiTIPt *parent=0, const QString &caption=QString(),
                                    const QString &dir=QString(), const QString &filter=QString(),
                                    QString *selectedSuffixOut=0);
 
@@ -68,8 +68,8 @@ namespace GUIUtil
     */
     Qt::ConnectionType blockingGUIThreadConnection();
 
-    // Determine whether a widget is hidden behind other windows
-    bool isObscured(QWidget *w);
+    // Determine whether a wiTIPt is hidden behind other windows
+    bool isObscured(QWiTIPt *w);
 
     // Open debug.log
     void openDebugLogfile();
@@ -95,13 +95,13 @@ namespace GUIUtil
     bool GetStartOnSystemStartup();
     bool SetStartOnSystemStartup(bool fAutoStart);
 
-    /** Help message, shown with --help. */
+    /** Help message for tipcoin-Qt, shown with --help. */
     class HelpMessageBox : public QMessageBox
     {
         Q_OBJECT
 
     public:
-        HelpMessageBox(QWidget *parent = 0);
+        HelpMessageBox(QWiTIPt *parent = 0);
 
         /** Show message box or print help message to standard output, based on operating system. */
         void showOrPrint();

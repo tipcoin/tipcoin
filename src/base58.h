@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin Developers
 // Copyright (c) 2011-2012 Litecoin Developers
+// Copyright (c) 2013 tipcoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,9 +10,9 @@
 // Why base-58 instead of standard base-64 encoding?
 // - Don't want 0OIl characters that look the same in some fonts and
 //      could be used to create visually identical looking account numbers.
-// - A string with non-alphanumeric characters is not as easily accepted as an account number.
+// - A string with non-luckynumeric characters is not as easily accepted as an account number.
 // - E-mail usually won't line-break if there's no punctuation to break at.
-// - Doubleclicking selects the whole number as one word if it's all alphanumeric.
+// - Doubleclicking selects the whole number as one word if it's all luckynumeric.
 //
 #ifndef BITCOIN_BASE58_H
 #define BITCOIN_BASE58_H
@@ -277,9 +278,9 @@ class CBitcoinAddress : public CBase58Data
 public:
     enum
     {
-        PUBKEY_ADDRESS = 51, // addresses start with T
-        SCRIPT_ADDRESS = 5,
-        PUBKEY_ADDRESS_TEST = 111,
+        PUBKEY_ADDRESS = 51, // tipcoin addresses start with D
+        SCRIPT_ADDRESS = 22,
+        PUBKEY_ADDRESS_TEST = 113,
         SCRIPT_ADDRESS_TEST = 196,
     };
 

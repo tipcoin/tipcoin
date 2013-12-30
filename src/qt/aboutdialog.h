@@ -14,7 +14,7 @@ class AboutDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit AboutDialog(QWidget *parent = 0);
+    explicit AboutDialog(QWiTIPt *parent = 0);
     ~AboutDialog();
 
     void setModel(ClientModel *model);

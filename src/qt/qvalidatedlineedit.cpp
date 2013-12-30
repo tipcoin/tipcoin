@@ -2,7 +2,7 @@
 
 #include "guiconstants.h"
 
-QValidatedLineEdit::QValidatedLineEdit(QWidget *parent) :
+QValidatedLineEdit::QValidatedLineEdit(QWiTIPt *parent) :
     QLineEdit(parent), valid(true)
 {
     connect(this, SIGNAL(textChanged(QString)), this, SLOT(markValid()));

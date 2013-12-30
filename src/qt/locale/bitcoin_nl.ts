@@ -329,7 +329,7 @@ Bent u er zeker van uw dat u uw portemonnee wilt versleutelen?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Receive coins</source>
+        <source>&amp;Much receive</source>
         <translation>&amp;Ontvang munten</translation>
     </message>
     <message>

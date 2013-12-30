@@ -13,7 +13,7 @@
 #include <QTextDocument>
 #include <QScrollBar>
 
-SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
+SendCoinsDialog::SendCoinsDialog(QWiTIPt *parent) :
     QDialog(parent),
     ui(new Ui::SendCoinsDialog),
     model(0)
@@ -40,7 +40,7 @@ void SendCoinsDialog::setModel(WalletModel *model)
 
     for(int i = 0; i < ui->entries->count(); ++i)
     {
-        SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->widget());
+        SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->wiTIPt());
         if(entry)
         {
             entry->setModel(model);
@@ -69,7 +69,7 @@ void SendCoinsDialog::on_sendButton_clicked()
 
     for(int i = 0; i < ui->entries->count(); ++i)
     {
-        SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->widget());
+        SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->wiTIPt());
         if(entry)
         {
             if(entry->validate())
@@ -169,7 +169,7 @@ void SendCoinsDialog::clear()
     // Remove entries until only one left
     while(ui->entries->count())
     {
-        delete ui->entries->takeAt(0)->widget();
+        delete ui->entries->takeAt(0)->wiTIPt();
     }
     addEntry();
 
@@ -192,7 +192,7 @@ SendCoinsEntry *SendCoinsDialog::addEntry()
 {
     SendCoinsEntry *entry = new SendCoinsEntry(this);
     entry->setModel(model);
-    ui->entries->addWidget(entry);
+    ui->entries->addWiTIPt(entry);
     connect(entry, SIGNAL(removeEntry(SendCoinsEntry*)), this, SLOT(removeEntry(SendCoinsEntry*)));
 
     updateRemoveEnabled();
@@ -200,7 +200,7 @@ SendCoinsEntry *SendCoinsDialog::addEntry()
     // Focus the field, so that entry can start immediately
     entry->clear();
     entry->setFocus();
-    ui->scrollAreaWidgetContents->resize(ui->scrollAreaWidgetContents->sizeHint());
+    ui->scrollAreaWiTIPtContents->resize(ui->scrollAreaWiTIPtContents->sizeHint());
     QCoreApplication::instance()->processEvents();
     QScrollBar* bar = ui->scrollArea->verticalScrollBar();
     if(bar)
@@ -214,7 +214,7 @@ void SendCoinsDialog::updateRemoveEnabled()
     bool enabled = (ui->entries->count() > 1);
     for(int i = 0; i < ui->entries->count(); ++i)
     {
-        SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->widget());
+        SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->wiTIPt());
         if(entry)
         {
             entry->setRemoveEnabled(enabled);
@@ -229,18 +229,18 @@ void SendCoinsDialog::removeEntry(SendCoinsEntry* entry)
     updateRemoveEnabled();
 }
 
-QWidget *SendCoinsDialog::setupTabChain(QWidget *prev)
+QWiTIPt *SendCoinsDialog::setupTabChain(QWiTIPt *prev)
 {
     for(int i = 0; i < ui->entries->count(); ++i)
     {
-        SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->widget());
+        SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->wiTIPt());
         if(entry)
         {
             prev = entry->setupTabChain(prev);
         }
     }
-    QWidget::setTabOrder(prev, ui->addButton);
-    QWidget::setTabOrder(ui->addButton, ui->sendButton);
+    QWiTIPt::setTabOrder(prev, ui->addButton);
+    QWiTIPt::setTabOrder(ui->addButton, ui->sendButton);
     return ui->sendButton;
 }
 
@@ -253,7 +253,7 @@ void SendCoinsDialog::pasteEntry(const SendCoinsRecipient &rv)
     // Replace the first entry if it is still unused
     if(ui->entries->count() == 1)
     {
-        SendCoinsEntry *first = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(0)->widget());
+        SendCoinsEntry *first = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(0)->wiTIPt());
         if(first->isClear())
         {
             entry = first;

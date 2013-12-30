@@ -328,7 +328,7 @@ Jsi si jistý, že chceš peněženku zašifrovat?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Receive coins</source>
+        <source>&amp;Much receive</source>
         <translation>Pří&amp;jem mincí</translation>
     </message>
     <message>

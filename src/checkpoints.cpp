@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2011-2012 Litecoin Developers
+// Copyright (c) 2013 tipcoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,10 +23,13 @@ namespace Checkpoints
     //    timestamp before)
     // + Contains no strange transactions
     //
+
+	// no checkpoint now, can be added in later releases
     static MapCheckpoints mapCheckpoints =
-        boost::assign::map_list_of // TODO: needs to adjusted for checkpoint checks, also see main.cpp
-        (         0, uint256("0x8e54e1412cb6e7fc25d9a79f69f6242e3e9d0b68d632cef5be1b6c5ab925152d"))
-        ;
+            boost::assign::map_list_of
+            (  0, hashGenesisBlockOfficial )
+			;
+
 
     bool CheckBlock(int nHeight, const uint256& hash)
     {
@@ -34,12 +38,15 @@ namespace Checkpoints
         MapCheckpoints::const_iterator i = mapCheckpoints.find(nHeight);
         if (i == mapCheckpoints.end()) return true;
         return hash == i->second;
+		// return true;
     }
 
     int GetTotalBlocksEstimate()
     {
         if (fTestNet) return 0;
+	
         return mapCheckpoints.rbegin()->first;
+		// return 0;
     }
 
     CBlockIndex* GetLastCheckpoint(const std::map<uint256, CBlockIndex*>& mapBlockIndex)
@@ -52,6 +59,7 @@ namespace Checkpoints
             std::map<uint256, CBlockIndex*>::const_iterator t = mapBlockIndex.find(hash);
             if (t != mapBlockIndex.end())
                 return t->second;
+				// return NULL;
         }
         return NULL;
     }

@@ -8,7 +8,7 @@
 #include <QPushButton>
 #include <QKeyEvent>
 
-AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
+AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWiTIPt *parent) :
     QDialog(parent),
     ui(new Ui::AskPassphraseDialog),
     mode(mode),
@@ -98,7 +98,7 @@ void AskPassphraseDialog::accept()
             break;
         }
         QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm wallet encryption"),
-                 tr("WARNING: If you encrypt your wallet and lose your passphrase, you will <b>LOSE ALL OF YOUR tipcoin</b>!\nAre you sure you wish to encrypt your wallet?"),
+                 tr("WARNING: If you encrypt your wallet and lose your passphrase, you will <b>LOSE ALL OF YOUR tipcoinS</b>!\nAre you sure you wish to encrypt your wallet?"),
                  QMessageBox::Yes|QMessageBox::Cancel,
                  QMessageBox::Cancel);
         if(retval == QMessageBox::Yes)
@@ -108,7 +108,7 @@ void AskPassphraseDialog::accept()
                 if(model->setWalletEncrypted(true, newpass1))
                 {
                     QMessageBox::warning(this, tr("Wallet encrypted"),
-                                         tr("tipcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tipcoin from being stolen by malware infecting your computer."));
+                                         tr("tipcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your tipcoins from being stolen by malware infecting your computer."));
                     QApplication::quit();
                 }
                 else
@@ -209,7 +209,7 @@ bool AskPassphraseDialog::event(QEvent *event)
             ui->capsLabel->clear();
         }
     }
-    return QWidget::event(event);
+    return QWiTIPt::event(event);
 }
 
 bool AskPassphraseDialog::eventFilter(QObject *, QEvent *event)

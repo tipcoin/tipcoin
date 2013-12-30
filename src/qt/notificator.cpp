@@ -24,7 +24,7 @@ extern bool qt_mac_execute_apple_script(const QString &script, AEDesc *ret);
 // https://wiki.ubuntu.com/NotificationDevelopmentGuidelines recommends at least 128
 const int FREEDESKTOP_NOTIFICATION_ICON_SIZE = 128;
 
-Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, QWidget *parent):
+Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, QWiTIPt *parent):
     QObject(parent),
     parent(parent),
     programName(programName),
