@@ -2082,14 +2082,9 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis Block:
-        // hashGenesisBlock = bbc912d098900fec07ff66be520f16f60cf857bd77290c4bdbe974f64354675a
-        // block.hashMerkleRoot = d06e620ceae6c716dacd1fed0e5b1c6e49b18e4316272525832507ed4f0c03a7
-		// CBlock(hash=9b7bce58999062b63bfb, PoW=caeb449903dc4f0e0ee2, ver=1, hashPrevBlock=00000000000000000000, 
-		//     hashMerkleRoot=6f80efd038, nTime=1369199888, nBits=1e0ffff0, nNonce=11288888, vtx=1)
-		//   CTransaction(hash=6f80efd038, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-		//     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d01044cd14d61792032322c20323031332c2031323a313620612e6d2e204544543a204a6170616e9273204e696b6b65692053746f636b2041766572616765204a503a4e494b202b312e3737252c20776869636820656e6465642061742074686569722068696768657374206c6576656c20696e206d6f7265207468616e206669766520796561727320696e2065616368206f6620746865206c6173742074687265652074726164696e672073657373696f6e732c20636c696d6265642061206675727468657220312e3225205765646e6573646179)
-		//     CTxOut(nValue=88.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-		//   vMerkleTree: 6f80efd038 
+        // hashGenesisBlock = 58516fc98a7791dbfcaeea684a62f8b034134274e6eee1e1c93ca3a4989f2efa
+        // block.hashMerkleRoot = d06e620ceae6c716dacd1fed0e5b1c6e49b18e4316272525832507ed4f0c03az
+        // hashMerkleRoot=6f80efd038, nTime=1388437021, nBits=1e0ffff0, nNonce=210187, vtx=1)
 
         // Genesis block
         const char* pszTimestamp = "NY Times 30/12/2013 Democrats Turn to Minimum Wage as 2014 Strategy";
@@ -2104,9 +2099,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1388431997;
+        block.nTime    = 1388437021;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 99943;
+        block.nNonce   = 210187;
 
 
         if (fTestNet)
@@ -2121,7 +2116,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.hashMerkleRoot = %s\n", block.hashMerkleRoot.ToString().c_str());
         assert(block.hashMerkleRoot == uint256("0xd06e620ceae6c716dacd1fed0e5b1c6e49b18e4316272525832507ed4f0c03a7"));
 
-if (true && block.GetHash() != hashGenesisBlock)
+if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
