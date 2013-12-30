@@ -2062,7 +2062,7 @@ bool LoadBlockIndex(bool fAllowNew)
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x");
+        hashGenesisBlock = uint256("0xbbc912d098900fec07ff66be520f16f60cf857bd77290c4bdbe974f64354675a");
     }
 
     //
@@ -2082,8 +2082,8 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis Block:
-		// hashGenesisBlock = 9b7bce58999062b63bfb18586813c42491fa32f4591d8d3043cb4fa9e551541b
-		// block.hashMerkleRoot = 6f80efd038566e1e3eab3e1d38131604d06481e77f2462235c6a9a94b1f8abf9
+        // hashGenesisBlock = bbc912d098900fec07ff66be520f16f60cf857bd77290c4bdbe974f64354675a
+        // block.hashMerkleRoot = d06e620ceae6c716dacd1fed0e5b1c6e49b18e4316272525832507ed4f0c03a7
 		// CBlock(hash=9b7bce58999062b63bfb, PoW=caeb449903dc4f0e0ee2, ver=1, hashPrevBlock=00000000000000000000, 
 		//     hashMerkleRoot=6f80efd038, nTime=1369199888, nBits=1e0ffff0, nNonce=11288888, vtx=1)
 		//   CTransaction(hash=6f80efd038, ver=1, vin.size=1, vout.size=1, nLockTime=0)
@@ -2112,14 +2112,14 @@ bool LoadBlockIndex(bool fAllowNew)
         if (fTestNet)
         {
             block.nTime    = 1387421993;
-            block.nNonce   = 0;
+            block.nNonce   = 1302824;
         }
 
         //// debug print
         printf("block.GetHash() = %s\n", block.GetHash().ToString().c_str());
         printf("hashGenesisBlock = %s\n", hashGenesisBlock.ToString().c_str());
         printf("block.hashMerkleRoot = %s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x5b2a3f53f605d62c53e62932dac6925e3d74afa5a4b459745c36d42d0ed26a69"));
+        assert(block.hashMerkleRoot == uint256("0xd06e620ceae6c716dacd1fed0e5b1c6e49b18e4316272525832507ed4f0c03a7"));
 
 if (true && block.GetHash() != hashGenesisBlock)
         {
