@@ -328,7 +328,7 @@ Tahdotko varmasti salata lompakon?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Much receive</source>
+        <source>&amp;Receive coins</source>
         <translation>&amp;Vastaanota Bitcoineja</translation>
     </message>
     <message>

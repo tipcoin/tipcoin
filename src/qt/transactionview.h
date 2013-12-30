@@ -1,7 +1,7 @@
 #ifndef TRANSACTIONVIEW_H
 #define TRANSACTIONVIEW_H
 
-#include <QWiTIPt>
+#include <QWidget>
 
 class WalletModel;
 class TransactionFilterProxy;
@@ -16,14 +16,14 @@ class QFrame;
 class QDateTimeEdit;
 QT_END_NAMESPACE
 
-/** WiTIPt showing the transaction list for a wallet, including a filter row.
+/** Widget showing the transaction list for a wallet, including a filter row.
     Using the filter row, the user can view or export a subset of the transactions.
   */
-class TransactionView : public QWiTIPt
+class TransactionView : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TransactionView(QWiTIPt *parent = 0);
+    explicit TransactionView(QWidget *parent = 0);
 
     void setModel(WalletModel *model);
 
@@ -44,18 +44,18 @@ private:
     TransactionFilterProxy *transactionProxyModel;
     QTableView *transactionView;
 
-    QComboBox *dateWiTIPt;
-    QComboBox *typeWiTIPt;
-    QLineEdit *addressWiTIPt;
-    QLineEdit *amountWiTIPt;
+    QComboBox *dateWidget;
+    QComboBox *typeWidget;
+    QLineEdit *addressWidget;
+    QLineEdit *amountWidget;
 
     QMenu *contextMenu;
 
-    QFrame *dateRangeWiTIPt;
+    QFrame *dateRangeWidget;
     QDateTimeEdit *dateFrom;
     QDateTimeEdit *dateTo;
 
-    QWiTIPt *createDateRangeWiTIPt();
+    QWidget *createDateRangeWidget();
 
 private slots:
     void contextualMenu(const QPoint &);

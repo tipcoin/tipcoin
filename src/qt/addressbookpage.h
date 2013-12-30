@@ -17,7 +17,7 @@ class QMenu;
 class QModelIndex;
 QT_END_NAMESPACE
 
-/** WiTIPt that shows a list of sending or receiving addresses.
+/** Widget that shows a list of sending or receiving addresses.
   */
 class AddressBookPage : public QDialog
 {
@@ -34,7 +34,7 @@ public:
         ForEditing  /**< Open address book for editing */
     };
 
-    explicit AddressBookPage(Mode mode, Tabs tab, QWiTIPt *parent = 0);
+    explicit AddressBookPage(Mode mode, Tabs tab, QWidget *parent = 0);
     ~AddressBookPage();
 
     void setModel(AddressTableModel *model);

@@ -322,7 +322,7 @@ Er du sikker på at du ønsker at kryptere din tegnebog?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Much receive</source>
+        <source>&amp;Receive coins</source>
         <translation>&amp;Modtag coins</translation>
     </message>
     <message>

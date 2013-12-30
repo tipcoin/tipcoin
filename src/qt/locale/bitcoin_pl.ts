@@ -333,7 +333,7 @@ Czy na pewno chcesz zaszyfrować swój portfel?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Much receive</source>
+        <source>&amp;Receive coins</source>
         <translation>Odbie&amp;rz monety</translation>
     </message>
     <message>

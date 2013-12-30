@@ -29,8 +29,8 @@
 #include <QLabel>
 #include <QDateTimeEdit>
 
-TransactionView::TransactionView(QWiTIPt *parent) :
-    QWiTIPt(parent), model(0), transactionProxyModel(0),
+TransactionView::TransactionView(QWidget *parent) :
+    QWidget(parent), model(0), transactionProxyModel(0),
     transactionView(0)
 {
     // Build filter row
@@ -46,58 +46,58 @@ TransactionView::TransactionView(QWiTIPt *parent) :
     hlayout->addSpacing(23);
 #endif
 
-    dateWiTIPt = new QComboBox(this);
+    dateWidget = new QComboBox(this);
 #ifdef Q_WS_MAC
-    dateWiTIPt->setFixedWidth(121);
+    dateWidget->setFixedWidth(121);
 #else
-    dateWiTIPt->setFixedWidth(120);
+    dateWidget->setFixedWidth(120);
 #endif
-    dateWiTIPt->addItem(tr("All"), All);
-    dateWiTIPt->addItem(tr("Today"), Today);
-    dateWiTIPt->addItem(tr("This week"), ThisWeek);
-    dateWiTIPt->addItem(tr("This month"), ThisMonth);
-    dateWiTIPt->addItem(tr("Last month"), LastMonth);
-    dateWiTIPt->addItem(tr("This year"), ThisYear);
-    dateWiTIPt->addItem(tr("Range..."), Range);
-    hlayout->addWiTIPt(dateWiTIPt);
+    dateWidget->addItem(tr("All"), All);
+    dateWidget->addItem(tr("Today"), Today);
+    dateWidget->addItem(tr("This week"), ThisWeek);
+    dateWidget->addItem(tr("This month"), ThisMonth);
+    dateWidget->addItem(tr("Last month"), LastMonth);
+    dateWidget->addItem(tr("This year"), ThisYear);
+    dateWidget->addItem(tr("Range..."), Range);
+    hlayout->addWidget(dateWidget);
 
-    typeWiTIPt = new QComboBox(this);
+    typeWidget = new QComboBox(this);
 #ifdef Q_WS_MAC
-    typeWiTIPt->setFixedWidth(121);
+    typeWidget->setFixedWidth(121);
 #else
-    typeWiTIPt->setFixedWidth(120);
+    typeWidget->setFixedWidth(120);
 #endif
 
-    typeWiTIPt->addItem(tr("All"), TransactionFilterProxy::ALL_TYPES);
-    typeWiTIPt->addItem(tr("Received with"), TransactionFilterProxy::TYPE(TransactionRecord::RecvWithAddress) |
+    typeWidget->addItem(tr("All"), TransactionFilterProxy::ALL_TYPES);
+    typeWidget->addItem(tr("Received with"), TransactionFilterProxy::TYPE(TransactionRecord::RecvWithAddress) |
                                         TransactionFilterProxy::TYPE(TransactionRecord::RecvFromOther));
-    typeWiTIPt->addItem(tr("Sent to"), TransactionFilterProxy::TYPE(TransactionRecord::SendToAddress) |
+    typeWidget->addItem(tr("Sent to"), TransactionFilterProxy::TYPE(TransactionRecord::SendToAddress) |
                                   TransactionFilterProxy::TYPE(TransactionRecord::SendToOther));
-    typeWiTIPt->addItem(tr("To yourself"), TransactionFilterProxy::TYPE(TransactionRecord::SendToSelf));
-    typeWiTIPt->addItem(tr("Mined"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
-    typeWiTIPt->addItem(tr("Other"), TransactionFilterProxy::TYPE(TransactionRecord::Other));
+    typeWidget->addItem(tr("To yourself"), TransactionFilterProxy::TYPE(TransactionRecord::SendToSelf));
+    typeWidget->addItem(tr("Mined"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
+    typeWidget->addItem(tr("Other"), TransactionFilterProxy::TYPE(TransactionRecord::Other));
 
-    hlayout->addWiTIPt(typeWiTIPt);
+    hlayout->addWidget(typeWidget);
 
-    addressWiTIPt = new QLineEdit(this);
+    addressWidget = new QLineEdit(this);
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    addressWiTIPt->setPlaceholderText(tr("Enter address or label to search"));
+    addressWidget->setPlaceholderText(tr("Enter address or label to search"));
 #endif
-    hlayout->addWiTIPt(addressWiTIPt);
+    hlayout->addWidget(addressWidget);
 
-    amountWiTIPt = new QLineEdit(this);
+    amountWidget = new QLineEdit(this);
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    amountWiTIPt->setPlaceholderText(tr("Min amount"));
+    amountWidget->setPlaceholderText(tr("Min amount"));
 #endif
 #ifdef Q_WS_MAC
-    amountWiTIPt->setFixedWidth(97);
+    amountWidget->setFixedWidth(97);
 #else
-    amountWiTIPt->setFixedWidth(100);
+    amountWidget->setFixedWidth(100);
 #endif
-    amountWiTIPt->setValidator(new QDoubleValidator(0, 1e20, 8, this));
-    hlayout->addWiTIPt(amountWiTIPt);
+    amountWidget->setValidator(new QDoubleValidator(0, 1e20, 8, this));
+    hlayout->addWidget(amountWidget);
 
     QVBoxLayout *vlayout = new QVBoxLayout(this);
     vlayout->setContentsMargins(0,0,0,0);
@@ -105,8 +105,8 @@ TransactionView::TransactionView(QWiTIPt *parent) :
 
     QTableView *view = new QTableView(this);
     vlayout->addLayout(hlayout);
-    vlayout->addWiTIPt(createDateRangeWiTIPt());
-    vlayout->addWiTIPt(view);
+    vlayout->addWidget(createDateRangeWidget());
+    vlayout->addWidget(view);
     vlayout->setSpacing(0);
     int width = view->verticalScrollBar()->sizeHint().width();
     // Cover scroll bar width with spacing
@@ -137,10 +137,10 @@ TransactionView::TransactionView(QWiTIPt *parent) :
     contextMenu->addAction(showDetailsAction);
 
     // Connect actions
-    connect(dateWiTIPt, SIGNAL(activated(int)), this, SLOT(chooseDate(int)));
-    connect(typeWiTIPt, SIGNAL(activated(int)), this, SLOT(chooseType(int)));
-    connect(addressWiTIPt, SIGNAL(textChanged(QString)), this, SLOT(changedPrefix(QString)));
-    connect(amountWiTIPt, SIGNAL(textChanged(QString)), this, SLOT(changedAmount(QString)));
+    connect(dateWidget, SIGNAL(activated(int)), this, SLOT(chooseDate(int)));
+    connect(typeWidget, SIGNAL(activated(int)), this, SLOT(chooseType(int)));
+    connect(addressWidget, SIGNAL(textChanged(QString)), this, SLOT(changedPrefix(QString)));
+    connect(amountWidget, SIGNAL(textChanged(QString)), this, SLOT(changedAmount(QString)));
 
     connect(view, SIGNAL(doubleClicked(QModelIndex)), this, SIGNAL(doubleClicked(QModelIndex)));
     connect(view, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextualMenu(QPoint)));
@@ -191,8 +191,8 @@ void TransactionView::chooseDate(int idx)
     if(!transactionProxyModel)
         return;
     QDate current = QDate::currentDate();
-    dateRangeWiTIPt->setVisible(false);
-    switch(dateWiTIPt->itemData(idx).toInt())
+    dateRangeWidget->setVisible(false);
+    switch(dateWidget->itemData(idx).toInt())
     {
     case All:
         transactionProxyModel->setDateRange(
@@ -228,7 +228,7 @@ void TransactionView::chooseDate(int idx)
                 TransactionFilterProxy::MAX_DATE);
         break;
     case Range:
-        dateRangeWiTIPt->setVisible(true);
+        dateRangeWidget->setVisible(true);
         dateRangeChanged();
         break;
     }
@@ -239,7 +239,7 @@ void TransactionView::chooseType(int idx)
     if(!transactionProxyModel)
         return;
     transactionProxyModel->setTypeFilter(
-        typeWiTIPt->itemData(idx).toInt());
+        typeWidget->itemData(idx).toInt());
 }
 
 void TransactionView::changedPrefix(const QString &prefix)
@@ -375,40 +375,40 @@ void TransactionView::showDetails()
     }
 }
 
-QWiTIPt *TransactionView::createDateRangeWiTIPt()
+QWidget *TransactionView::createDateRangeWidget()
 {
-    dateRangeWiTIPt = new QFrame();
-    dateRangeWiTIPt->setFrameStyle(QFrame::Panel | QFrame::Raised);
-    dateRangeWiTIPt->setContentsMargins(1,1,1,1);
-    QHBoxLayout *layout = new QHBoxLayout(dateRangeWiTIPt);
+    dateRangeWidget = new QFrame();
+    dateRangeWidget->setFrameStyle(QFrame::Panel | QFrame::Raised);
+    dateRangeWidget->setContentsMargins(1,1,1,1);
+    QHBoxLayout *layout = new QHBoxLayout(dateRangeWidget);
     layout->setContentsMargins(0,0,0,0);
     layout->addSpacing(23);
-    layout->addWiTIPt(new QLabel(tr("Range:")));
+    layout->addWidget(new QLabel(tr("Range:")));
 
     dateFrom = new QDateTimeEdit(this);
     dateFrom->setDisplayFormat("dd/MM/yy");
     dateFrom->setCalendarPopup(true);
     dateFrom->setMinimumWidth(100);
     dateFrom->setDate(QDate::currentDate().addDays(-7));
-    layout->addWiTIPt(dateFrom);
-    layout->addWiTIPt(new QLabel(tr("to")));
+    layout->addWidget(dateFrom);
+    layout->addWidget(new QLabel(tr("to")));
 
     dateTo = new QDateTimeEdit(this);
     dateTo->setDisplayFormat("dd/MM/yy");
     dateTo->setCalendarPopup(true);
     dateTo->setMinimumWidth(100);
     dateTo->setDate(QDate::currentDate());
-    layout->addWiTIPt(dateTo);
+    layout->addWidget(dateTo);
     layout->addStretch();
 
     // Hide by default
-    dateRangeWiTIPt->setVisible(false);
+    dateRangeWidget->setVisible(false);
 
     // Notify on change
     connect(dateFrom, SIGNAL(dateChanged(QDate)), this, SLOT(dateRangeChanged()));
     connect(dateTo, SIGNAL(dateChanged(QDate)), this, SLOT(dateRangeChanged()));
 
-    return dateRangeWiTIPt;
+    return dateRangeWidget;
 }
 
 void TransactionView::dateRangeChanged()

@@ -23,7 +23,7 @@ public:
         Decrypt     /**< Ask passphrase and decrypt wallet */
     };
 
-    explicit AskPassphraseDialog(Mode mode, QWiTIPt *parent = 0);
+    explicit AskPassphraseDialog(Mode mode, QWidget *parent = 0);
     ~AskPassphraseDialog();
 
     void accept();

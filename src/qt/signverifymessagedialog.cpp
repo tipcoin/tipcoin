@@ -15,7 +15,7 @@
 
 #include <QClipboard>
 
-SignVerifyMessageDialog::SignVerifyMessageDialog(QWiTIPt *parent) :
+SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SignVerifyMessageDialog),
     model(0)
@@ -24,15 +24,15 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWiTIPt *parent) :
 
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->addressIn_SM->setPlaceholderText(tr("Enter a tipcoin address (e.g. 7NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
+    ui->addressIn_SM->setPlaceholderText(tr("Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
     ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
 
-    ui->addressIn_VM->setPlaceholderText(tr("Enter a tipcoin address (e.g. 7NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
-    ui->signatureIn_VM->setPlaceholderText(tr("Enter tipcoin signature"));
+    ui->addressIn_VM->setPlaceholderText(tr("Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
+    ui->signatureIn_VM->setPlaceholderText(tr("Enter Bitcoin signature"));
 #endif
 
-    GUIUtil::setupAddressWiTIPt(ui->addressIn_SM, this);
-    GUIUtil::setupAddressWiTIPt(ui->addressIn_VM, this);
+    GUIUtil::setupAddressWidget(ui->addressIn_SM, this);
+    GUIUtil::setupAddressWidget(ui->addressIn_VM, this);
 
     ui->addressIn_SM->installEventFilter(this);
     ui->messageIn_SM->installEventFilter(this);
@@ -69,7 +69,7 @@ void SignVerifyMessageDialog::setAddress_VM(QString address)
 
 void SignVerifyMessageDialog::showTab_SM(bool fShow)
 {
-    ui->tabWiTIPt->setCurrentIndex(0);
+    ui->tabWidget->setCurrentIndex(0);
 
     if (fShow)
         this->show();
@@ -77,7 +77,7 @@ void SignVerifyMessageDialog::showTab_SM(bool fShow)
 
 void SignVerifyMessageDialog::showTab_VM(bool fShow)
 {
-    ui->tabWiTIPt->setCurrentIndex(1);
+    ui->tabWidget->setCurrentIndex(1);
     if (fShow)
         this->show();
 }
@@ -252,7 +252,7 @@ bool SignVerifyMessageDialog::eventFilter(QObject *object, QEvent *event)
 {
     if (event->type() == QEvent::MouseButtonPress || event->type() == QEvent::FocusIn)
     {
-        if (ui->tabWiTIPt->currentIndex() == 0)
+        if (ui->tabWidget->currentIndex() == 0)
         {
             /* Clear status message on focus change */
             ui->statusLabel_SM->clear();
@@ -264,7 +264,7 @@ bool SignVerifyMessageDialog::eventFilter(QObject *object, QEvent *event)
                 return true;
             }
         }
-        else if (ui->tabWiTIPt->currentIndex() == 1)
+        else if (ui->tabWidget->currentIndex() == 1)
         {
             /* Clear status message on focus change */
             ui->statusLabel_VM->clear();

@@ -15,7 +15,7 @@ class SendCoinsEntry : public QFrame
     Q_OBJECT
 
 public:
-    explicit SendCoinsEntry(QWiTIPt *parent = 0);
+    explicit SendCoinsEntry(QWidget *parent = 0);
     ~SendCoinsEntry();
 
     void setModel(WalletModel *model);
@@ -29,7 +29,7 @@ public:
 
     /** Set up the tab chain manually, as Qt messes up the tab chain by default in some cases (issue http://bugreports.qt.nokia.com/browse/QTBUG-10907).
      */
-    QWiTIPt *setupTabChain(QWiTIPt *prev);
+    QWidget *setupTabChain(QWidget *prev);
 
     void setFocus();
 

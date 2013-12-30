@@ -4,7 +4,7 @@
 #include <QDialog>
 
 QT_BEGIN_NAMESPACE
-class QDataWiTIPtMapper;
+class QDataWidgetMapper;
 QT_END_NAMESPACE
 
 namespace Ui {
@@ -26,7 +26,7 @@ public:
         EditSendingAddress
     };
 
-    explicit EditAddressDialog(Mode mode, QWiTIPt *parent = 0);
+    explicit EditAddressDialog(Mode mode, QWidget *parent = 0);
     ~EditAddressDialog();    
 
     void setModel(AddressTableModel *model);
@@ -40,7 +40,7 @@ private:
     bool saveCurrentRow();
 
     Ui::EditAddressDialog *ui;
-    QDataWiTIPtMapper *mapper;
+    QDataWidgetMapper *mapper;
     Mode mode;
     AddressTableModel *model;
 

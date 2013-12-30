@@ -31,7 +31,7 @@ Q_IMPORT_PLUGIN(qcncodecs)
 Q_IMPORT_PLUGIN(qjpcodecs)
 Q_IMPORT_PLUGIN(qtwcodecs)
 Q_IMPORT_PLUGIN(qkrcodecs)
-Q_IMPORT_PLUGIN(qtaccessiblewiTIPts)
+Q_IMPORT_PLUGIN(qtaccessiblewidgets)
 #endif
 
 // Need a global reference for the notifications to find the GUI
@@ -170,11 +170,11 @@ int main(int argc, char *argv[])
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
     app.setOrganizationName("tipcoin");
-    app.setOrganizationDomain("tipcoin-noexist-domain.org");
+    app.setOrganizationDomain("we-have-no-domain-yet.nex");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
-        app.setApplicationName("tipcoin-Qt-testnet");
+        app.setApplicationName("tipcoin-qt-testnet");
     else
-        app.setApplicationName("tipcoin-Qt");
+        app.setApplicationName("tipcoin-qt");
 
     // ... then GUI settings:
     OptionsModel optionsModel;

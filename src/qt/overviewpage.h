@@ -1,7 +1,7 @@
 #ifndef OVERVIEWPAGE_H
 #define OVERVIEWPAGE_H
 
-#include <QWiTIPt>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QModelIndex;
@@ -14,13 +14,13 @@ class WalletModel;
 class TxViewDelegate;
 class TransactionFilterProxy;
 
-/** Overview ("home") page wiTIPt */
-class OverviewPage : public QWiTIPt
+/** Overview ("home") page widget */
+class OverviewPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit OverviewPage(QWiTIPt *parent = 0);
+    explicit OverviewPage(QWidget *parent = 0);
     ~OverviewPage();
 
     void setModel(WalletModel *model);

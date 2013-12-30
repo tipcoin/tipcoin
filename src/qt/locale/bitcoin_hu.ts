@@ -322,7 +322,7 @@ Biztosan kódolni akarod a tárcát?</translation>
     </message>
     <message>
         <location filename="../bitcoingui.cpp" line="203"/>
-        <source>&amp;Much receive</source>
+        <source>&amp;Receive coins</source>
         <translation>Érmék &amp;fogadása</translation>
     </message>
     <message>

@@ -1,21 +1,21 @@
 #ifndef BITCOINFIELD_H
 #define BITCOINFIELD_H
 
-#include <QWiTIPt>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QDoubleSpinBox;
 class QValueComboBox;
 QT_END_NAMESPACE
 
-/** WiTIPt for entering bitcoin amounts.
+/** Widget for entering bitcoin amounts.
   */
-class BitcoinAmountField: public QWiTIPt
+class BitcoinAmountField: public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(qint64 value READ value WRITE setValue NOTIFY textChanged USER true)
 public:
-    explicit BitcoinAmountField(QWiTIPt *parent = 0);
+    explicit BitcoinAmountField(QWidget *parent = 0);
 
     qint64 value(bool *valid=0) const;
     void setValue(qint64 value);
@@ -34,7 +34,7 @@ public:
     /** Qt messes up the tab chain by default in some cases (issue http://bugreports.qt.nokia.com/browse/QTBUG-10907),
         in these cases we have to set it up manually.
     */
-    QWiTIPt *setupTabChain(QWiTIPt *prev);
+    QWidget *setupTabChain(QWidget *prev);
 
 signals:
     void textChanged();

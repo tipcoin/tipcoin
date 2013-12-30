@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>OptionsDialog</class>
- <wiTIPt class="QDialog" name="OptionsDialog">
+ <widget class="QDialog" name="OptionsDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -18,20 +18,20 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <wiTIPt class="QTabWiTIPt" name="tabWiTIPt">
+    <widget class="QTabWidget" name="tabWidget">
      <property name="tabPosition">
-      <enum>QTabWiTIPt::North</enum>
+      <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
       <number>1</number>
      </property>
-     <wiTIPt class="QWiTIPt" name="tabMain">
+     <widget class="QWidget" name="tabMain">
       <attribute name="title">
        <string>&amp;Main</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_Main">
        <item>
-        <wiTIPt class="QLabel" name="transactionFeeInfoLabel">
+        <widget class="QLabel" name="transactionFeeInfoLabel">
          <property name="text">
           <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.</string>
          </property>
@@ -41,12 +41,12 @@
          <property name="wordWrap">
           <bool>true</bool>
          </property>
-        </wiTIPt>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_Main">
          <item>
-          <wiTIPt class="QLabel" name="transactionFeeLabel">
+          <widget class="QLabel" name="transactionFeeLabel">
            <property name="text">
             <string>Pay transaction &amp;fee</string>
            </property>
@@ -56,10 +56,10 @@
            <property name="buddy">
             <cstring>transactionFee</cstring>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
-          <wiTIPt class="BitcoinAmountField" name="transactionFee"/>
+          <widget class="BitcoinAmountField" name="transactionFee"/>
          </item>
          <item>
           <spacer name="horizontalSpacer_Main">
@@ -77,24 +77,24 @@
         </layout>
        </item>
        <item>
-        <wiTIPt class="QCheckBox" name="bitcoinAtStartup">
+        <widget class="QCheckBox" name="bitcoinAtStartup">
          <property name="toolTip">
           <string>Automatically start tipcoin after logging in to the system.</string>
          </property>
          <property name="text">
           <string>&amp;Start tipcoin on system login</string>
          </property>
-        </wiTIPt>
+        </widget>
        </item>
        <item>
-        <wiTIPt class="QCheckBox" name="detachDatabases">
+        <widget class="QCheckBox" name="detachDatabases">
          <property name="toolTip">
           <string>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</string>
          </property>
          <property name="text">
           <string>&amp;Detach databases at shutdown</string>
          </property>
-        </wiTIPt>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_Main">
@@ -110,36 +110,36 @@
         </spacer>
        </item>
       </layout>
-     </wiTIPt>
-     <wiTIPt class="QWiTIPt" name="tabNetwork">
+     </widget>
+     <widget class="QWidget" name="tabNetwork">
       <attribute name="title">
        <string>&amp;Network</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_Network">
        <item>
-        <wiTIPt class="QCheckBox" name="mapPortUpnp">
+        <widget class="QCheckBox" name="mapPortUpnp">
          <property name="toolTip">
           <string>Automatically open the tipcoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
          </property>
          <property name="text">
           <string>Map port using &amp;UPnP</string>
          </property>
-        </wiTIPt>
+        </widget>
        </item>
        <item>
-        <wiTIPt class="QCheckBox" name="connectSocks">
+        <widget class="QCheckBox" name="connectSocks">
          <property name="toolTip">
           <string>Connect to the tipcoin network through a SOCKS proxy (e.g. when connecting through Tor).</string>
          </property>
          <property name="text">
           <string>&amp;Connect through SOCKS proxy:</string>
          </property>
-        </wiTIPt>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_Network">
          <item>
-          <wiTIPt class="QLabel" name="proxyIpLabel">
+          <widget class="QLabel" name="proxyIpLabel">
            <property name="text">
             <string>Proxy &amp;IP:</string>
            </property>
@@ -149,10 +149,10 @@
            <property name="buddy">
             <cstring>proxyIp</cstring>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
-          <wiTIPt class="QValidatedLineEdit" name="proxyIp">
+          <widget class="QValidatedLineEdit" name="proxyIp">
            <property name="maximumSize">
             <size>
              <width>140</width>
@@ -162,10 +162,10 @@
            <property name="toolTip">
             <string>IP address of the proxy (e.g. 127.0.0.1)</string>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
-          <wiTIPt class="QLabel" name="proxyPortLabel">
+          <widget class="QLabel" name="proxyPortLabel">
            <property name="text">
             <string>&amp;Port:</string>
            </property>
@@ -175,10 +175,10 @@
            <property name="buddy">
             <cstring>proxyPort</cstring>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
-          <wiTIPt class="QLineEdit" name="proxyPort">
+          <widget class="QLineEdit" name="proxyPort">
            <property name="maximumSize">
             <size>
              <width>55</width>
@@ -188,10 +188,10 @@
            <property name="toolTip">
             <string>Port of the proxy (e.g. 9050)</string>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
-          <wiTIPt class="QLabel" name="socksVersionLabel">
+          <widget class="QLabel" name="socksVersionLabel">
            <property name="text">
             <string>SOCKS &amp;Version:</string>
            </property>
@@ -201,14 +201,14 @@
            <property name="buddy">
             <cstring>socksVersion</cstring>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
-          <wiTIPt class="QValueComboBox" name="socksVersion">
+          <widget class="QValueComboBox" name="socksVersion">
            <property name="toolTip">
             <string>SOCKS version of the proxy (e.g. 5)</string>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer_Network">
@@ -239,31 +239,31 @@
         </spacer>
        </item>
       </layout>
-     </wiTIPt>
-     <wiTIPt class="QWiTIPt" name="tabWindow">
+     </widget>
+     <widget class="QWidget" name="tabWindow">
       <attribute name="title">
        <string>&amp;Window</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_Window">
        <item>
-        <wiTIPt class="QCheckBox" name="minimizeToTray">
+        <widget class="QCheckBox" name="minimizeToTray">
          <property name="toolTip">
           <string>Show only a tray icon after minimizing the window.</string>
          </property>
          <property name="text">
           <string>&amp;Minimize to the tray instead of the taskbar</string>
          </property>
-        </wiTIPt>
+        </widget>
        </item>
        <item>
-        <wiTIPt class="QCheckBox" name="minimizeOnClose">
+        <widget class="QCheckBox" name="minimizeOnClose">
          <property name="toolTip">
           <string>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</string>
          </property>
          <property name="text">
           <string>M&amp;inimize on close</string>
          </property>
-        </wiTIPt>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_Window">
@@ -279,8 +279,8 @@
         </spacer>
        </item>
       </layout>
-     </wiTIPt>
-     <wiTIPt class="QWiTIPt" name="tabDisplay">
+     </widget>
+     <widget class="QWidget" name="tabDisplay">
       <attribute name="title">
        <string>&amp;Display</string>
       </attribute>
@@ -288,7 +288,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_1_Display">
          <item>
-          <wiTIPt class="QLabel" name="langLabel">
+          <widget class="QLabel" name="langLabel">
            <property name="text">
             <string>User Interface &amp;language:</string>
            </property>
@@ -298,21 +298,21 @@
            <property name="buddy">
             <cstring>lang</cstring>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
-          <wiTIPt class="QValueComboBox" name="lang">
+          <widget class="QValueComboBox" name="lang">
            <property name="toolTip">
             <string>The user interface language can be set here. This setting will take effect after restarting tipcoin.</string>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2_Display">
          <item>
-          <wiTIPt class="QLabel" name="unitLabel">
+          <widget class="QLabel" name="unitLabel">
            <property name="text">
             <string>&amp;Unit to show amounts in:</string>
            </property>
@@ -322,26 +322,26 @@
            <property name="buddy">
             <cstring>unit</cstring>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
          <item>
-          <wiTIPt class="QValueComboBox" name="unit">
+          <widget class="QValueComboBox" name="unit">
            <property name="toolTip">
             <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
            </property>
-          </wiTIPt>
+          </widget>
          </item>
         </layout>
        </item>
        <item>
-        <wiTIPt class="QCheckBox" name="displayAddresses">
+        <widget class="QCheckBox" name="displayAddresses">
          <property name="toolTip">
           <string>Whether to show tipcoin addresses in the transaction list or not.</string>
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>
          </property>
-        </wiTIPt>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_Display">
@@ -357,8 +357,8 @@
         </spacer>
        </item>
       </layout>
-     </wiTIPt>
-    </wiTIPt>
+     </widget>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_Buttons">
@@ -376,7 +376,7 @@
       </spacer>
      </item>
      <item>
-      <wiTIPt class="QLabel" name="statusLabel">
+      <widget class="QLabel" name="statusLabel">
        <property name="font">
         <font>
          <weight>75</weight>
@@ -392,7 +392,7 @@
        <property name="wordWrap">
         <bool>true</bool>
        </property>
-      </wiTIPt>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_2">
@@ -408,24 +408,24 @@
       </spacer>
      </item>
      <item>
-      <wiTIPt class="QPushButton" name="okButton">
+      <widget class="QPushButton" name="okButton">
        <property name="text">
         <string>&amp;OK</string>
        </property>
-      </wiTIPt>
+      </widget>
      </item>
      <item>
-      <wiTIPt class="QPushButton" name="cancelButton">
+      <widget class="QPushButton" name="cancelButton">
        <property name="text">
         <string>&amp;Cancel</string>
        </property>
        <property name="autoDefault">
         <bool>false</bool>
        </property>
-      </wiTIPt>
+      </widget>
      </item>
      <item>
-      <wiTIPt class="QPushButton" name="applyButton">
+      <widget class="QPushButton" name="applyButton">
        <property name="text">
         <string>&amp;Apply</string>
        </property>
@@ -438,29 +438,29 @@
        <property name="flat">
         <bool>false</bool>
        </property>
-      </wiTIPt>
+      </widget>
      </item>
     </layout>
    </item>
   </layout>
- </wiTIPt>
- <customwiTIPts>
-  <customwiTIPt>
+ </widget>
+ <customwidgets>
+  <customwidget>
    <class>BitcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>bitcoinamountfield.h</header>
-  </customwiTIPt>
-  <customwiTIPt>
+  </customwidget>
+  <customwidget>
    <class>QValueComboBox</class>
    <extends>QComboBox</extends>
    <header>qvaluecombobox.h</header>
-  </customwiTIPt>
-  <customwiTIPt>
+  </customwidget>
+  <customwidget>
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
-  </customwiTIPt>
- </customwiTIPts>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

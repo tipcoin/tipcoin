@@ -3,16 +3,16 @@
 #include "addresstablemodel.h"
 #include "guiutil.h"
 
-#include <QDataWiTIPtMapper>
+#include <QDataWidgetMapper>
 #include <QMessageBox>
 
-EditAddressDialog::EditAddressDialog(Mode mode, QWiTIPt *parent) :
+EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EditAddressDialog), mapper(0), mode(mode), model(0)
 {
     ui->setupUi(this);
 
-    GUIUtil::setupAddressWiTIPt(ui->addressEdit, this);
+    GUIUtil::setupAddressWidget(ui->addressEdit, this);
 
     switch(mode)
     {
@@ -32,8 +32,8 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWiTIPt *parent) :
         break;
     }
 
-    mapper = new QDataWiTIPtMapper(this);
-    mapper->setSubmitPolicy(QDataWiTIPtMapper::ManualSubmit);
+    mapper = new QDataWidgetMapper(this);
+    mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 }
 
 EditAddressDialog::~EditAddressDialog()

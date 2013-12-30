@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>OverviewPage</class>
- <wiTIPt class="QWiTIPt" name="OverviewPage">
+ <widget class="QWidget" name="OverviewPage">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,7 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <wiTIPt class="QFrame" name="frame">
+      <widget class="QFrame" name="frame">
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
@@ -28,7 +28,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <wiTIPt class="QLabel" name="label_5">
+           <widget class="QLabel" name="label_5">
             <property name="font">
              <font>
               <pointsize>11</pointsize>
@@ -39,10 +39,10 @@
             <property name="text">
              <string>Wallet</string>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item>
-           <wiTIPt class="QLabel" name="labelWalletStatus">
+           <widget class="QLabel" name="labelWalletStatus">
             <property name="toolTip">
              <string>The displayed information may be out of date. Your wallet automatically synchronizes with the tipcoin network after a connection is established, but this process has not completed yet.</string>
             </property>
@@ -55,7 +55,7 @@
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_2">
@@ -84,14 +84,14 @@
            <number>12</number>
           </property>
           <item row="0" column="0">
-           <wiTIPt class="QLabel" name="label">
+           <widget class="QLabel" name="label">
             <property name="text">
              <string>Balance:</string>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item row="0" column="1">
-           <wiTIPt class="QLabel" name="labelBalance">
+           <widget class="QLabel" name="labelBalance">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -105,22 +105,22 @@
              <string>Your current balance</string>
             </property>
             <property name="text">
-             <string notr="true">0 BEL</string>
+             <string notr="true">0 TIP</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item row="1" column="0">
-           <wiTIPt class="QLabel" name="label_3">
+           <widget class="QLabel" name="label_3">
             <property name="text">
              <string>Unconfirmed:</string>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item row="1" column="1">
-           <wiTIPt class="QLabel" name="labelUnconfirmed">
+           <widget class="QLabel" name="labelUnconfirmed">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -134,39 +134,39 @@
              <string>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</string>
             </property>
             <property name="text">
-             <string notr="true">0 BEL</string>
+             <string notr="true">0 TIP</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item row="3" column="0">
-           <wiTIPt class="QLabel" name="label_2">
+           <widget class="QLabel" name="label_2">
             <property name="text">
              <string>Number of transactions:</string>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item row="3" column="1">
-           <wiTIPt class="QLabel" name="labelNumTransactions">
+           <widget class="QLabel" name="labelNumTransactions">
             <property name="toolTip">
              <string>Total number of transactions in wallet</string>
             </property>
             <property name="text">
              <string notr="true">0</string>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item row="2" column="0">
-           <wiTIPt class="QLabel" name="labelImmatureText">
+           <widget class="QLabel" name="labelImmatureText">
             <property name="text">
              <string>Immature:</string>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item row="2" column="1">
-           <wiTIPt class="QLabel" name="labelImmature">
+           <widget class="QLabel" name="labelImmature">
             <property name="font">
              <font>
               <weight>75</weight>
@@ -177,17 +177,17 @@
              <string>Mined balance that has not yet matured</string>
             </property>
             <property name="text">
-             <string notr="true">0 BEL</string>
+             <string notr="true">0 TIP</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
          </layout>
         </item>
        </layout>
-      </wiTIPt>
+      </widget>
      </item>
      <item>
       <spacer name="verticalSpacer">
@@ -202,38 +202,12 @@
        </property>
       </spacer>
      </item>
-	 <item>
-         <wiTIPt class="QLabel" name="label_wallet_bgcoin">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../bitcoin.qrc">:/images/wallet_bgcoin</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>false</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="margin">
-           <number>-2</number>
-          </property>
-         </wiTIPt>
-        </item>
-        <item>
-         <wiTIPt class="QLabel" name="label_6">
-          <property name="text">
-           <string/>
-          </property>
-         </wiTIPt>
-        </item>
     </layout>
    </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
-      <wiTIPt class="QFrame" name="frame_2">
+      <widget class="QFrame" name="frame_2">
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
@@ -244,14 +218,14 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <wiTIPt class="QLabel" name="label_4">
+           <widget class="QLabel" name="label_4">
             <property name="text">
              <string>&lt;b&gt;Recent transactions&lt;/b&gt;</string>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item>
-           <wiTIPt class="QLabel" name="labelTransactionsStatus">
+           <widget class="QLabel" name="labelTransactionsStatus">
             <property name="toolTip">
              <string>The displayed information may be out of date. Your wallet automatically synchronizes with the tipcoin network after a connection is established, but this process has not completed yet.</string>
             </property>
@@ -264,7 +238,7 @@
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
-           </wiTIPt>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer">
@@ -282,7 +256,7 @@
          </layout>
         </item>
         <item>
-         <wiTIPt class="QListView" name="listTransactions">
+         <widget class="QListView" name="listTransactions">
           <property name="styleSheet">
            <string notr="true">QListView { background: transparent; }</string>
           </property>
@@ -298,10 +272,10 @@
           <property name="selectionMode">
            <enum>QAbstractItemView::NoSelection</enum>
           </property>
-         </wiTIPt>
+         </widget>
         </item>
        </layout>
-      </wiTIPt>
+      </widget>
      </item>
      <item>
       <spacer name="verticalSpacer_2">
@@ -319,7 +293,7 @@
     </layout>
    </item>
   </layout>
- </wiTIPt>
+ </widget>
  <resources/>
  <connections/>
 </ui>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MiningPage</class>
- <wiTIPt class="QWiTIPt" name="MiningPage">
+ <widget class="QWidget" name="MiningPage">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,71 +11,71 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dig</string>
+   <string>Mining</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="sizeConstraint">
     <enum>QLayout::SetMaximumSize</enum>
    </property>
    <item row="7" column="1">
-    <wiTIPt class="QLineEdit" name="serverLine">
+    <widget class="QLineEdit" name="serverLine">
      <property name="enabled">
       <bool>true</bool>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="6" column="3">
-    <wiTIPt class="QLabel" name="usernameLabel">
+    <widget class="QLabel" name="usernameLabel">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="text">
       <string>Username</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="6" column="1">
-    <wiTIPt class="QLabel" name="serverLabel">
+    <widget class="QLabel" name="serverLabel">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="text">
       <string>Server</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="7" column="3">
-    <wiTIPt class="QLineEdit" name="usernameLine">
+    <widget class="QLineEdit" name="usernameLine">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="text">
       <string/>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="6" column="4">
-    <wiTIPt class="QLabel" name="passwordLabel">
+    <widget class="QLabel" name="passwordLabel">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="text">
       <string>Password</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="6" column="2">
-    <wiTIPt class="QLabel" name="portLabel">
+    <widget class="QLabel" name="portLabel">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="text">
       <string>Port</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="3" column="4">
-    <wiTIPt class="QPushButton" name="startButton">
+    <widget class="QPushButton" name="startButton">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -83,12 +83,12 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Start Dig</string>
+      <string>Start Mining</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="8" column="1" colspan="4">
-    <wiTIPt class="Line" name="line">
+    <widget class="Line" name="line">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -104,10 +104,10 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="13" column="1" colspan="4">
-    <wiTIPt class="QListWiTIPt" name="list">
+    <widget class="QListWidget" name="list">
      <property name="autoScrollMargin">
       <number>100000</number>
      </property>
@@ -123,10 +123,10 @@
      <property name="batchSize">
       <number>10</number>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="14" column="1" colspan="2">
-    <wiTIPt class="QLabel" name="shareCount">
+    <widget class="QLabel" name="shareCount">
      <property name="font">
       <font>
        <pointsize>10</pointsize>
@@ -137,10 +137,10 @@
      <property name="text">
       <string/>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="3" column="3">
-    <wiTIPt class="QLabel" name="scantimeLabel">
+    <widget class="QLabel" name="scantimeLabel">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -150,34 +150,34 @@
      <property name="text">
       <string>Scantime</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="3" column="2">
-    <wiTIPt class="QLabel" name="threadsLabel">
+    <widget class="QLabel" name="threadsLabel">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="text">
       <string>Threads</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="4" column="4">
-    <wiTIPt class="QCheckBox" name="debugCheckBox">
+    <widget class="QCheckBox" name="debugCheckBox">
      <property name="text">
       <string>Debug Logging</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="3" column="1">
-    <wiTIPt class="QLabel" name="typeLabel">
+    <widget class="QLabel" name="typeLabel">
      <property name="text">
       <string>Type</string>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="4" column="2">
-    <wiTIPt class="QSpinBox" name="threadsBox">
+    <widget class="QSpinBox" name="threadsBox">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -190,10 +190,10 @@
      <property name="singleStep">
       <number>1</number>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="4" column="1">
-    <wiTIPt class="QComboBox" name="typeBox">
+    <widget class="QComboBox" name="typeBox">
      <property name="editable">
       <bool>false</bool>
      </property>
@@ -202,18 +202,18 @@
      </property>
      <item>
       <property name="text">
-       <string>Solo Dig</string>
+       <string>Solo Mining</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Herd Dig</string>
+       <string>Pool Mining</string>
       </property>
      </item>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="4" column="3">
-    <wiTIPt class="QSpinBox" name="scantimeBox">
+    <widget class="QSpinBox" name="scantimeBox">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -223,10 +223,10 @@
      <property name="value">
       <number>5</number>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="7" column="2">
-    <wiTIPt class="QLineEdit" name="portLine">
+    <widget class="QLineEdit" name="portLine">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -236,17 +236,17 @@
      <property name="value" stdset="0">
       <number>9332</number>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="7" column="4">
-    <wiTIPt class="QLineEdit" name="passwordLine">
+    <widget class="QLineEdit" name="passwordLine">
      <property name="enabled">
       <bool>true</bool>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
    <item row="14" column="3" colspan="2">
-    <wiTIPt class="QLabel" name="mineSpeedLabel">
+    <widget class="QLabel" name="mineSpeedLabel">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
@@ -266,10 +266,10 @@
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
-    </wiTIPt>
+    </widget>
    </item>
   </layout>
- </wiTIPt>
+ </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
   <tabstop>startButton</tabstop>

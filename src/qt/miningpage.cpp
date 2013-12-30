@@ -1,8 +1,8 @@
 #include "miningpage.h"
 #include "ui_miningpage.h"
 
-MiningPage::MiningPage(QWiTIPt *parent) :
-    QWiTIPt(parent),
+MiningPage::MiningPage(QWidget *parent) :
+    QWidget(parent),
     ui(new Ui::MiningPage)
 {
     ui->setupUi(this);
@@ -81,7 +81,7 @@ void MiningPage::startPoolMining()
 {
     QStringList args;
     QString url = ui->serverLine->text();
-    if (!url.contains("://")) // Any protocol is accepted
+    if (!url.contains("http://"))
         url.prepend("http://");
     QString urlLine = QString("%1:%2").arg(url, ui->portLine->text());
     QString userpassLine = QString("%1:%2").arg(ui->usernameLine->text(), ui->passwordLine->text());
@@ -212,16 +212,16 @@ void MiningPage::minerError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart)
     {
-        reportToList("No dig such fail", ERROR, NULL);
+        reportToList("Miner failed to start. Make sure you have the minerd executable and libraries in the same directory as tipcoin-qt.", ERROR, NULL);
     }
 }
 
 void MiningPage::minerFinished()
 {
     if (getMiningType() == ClientModel::SoloMining)
-        reportToList("Solo dig stop", ERROR, NULL);
+        reportToList("Solo mining stopped.", ERROR, NULL);
     else
-        reportToList("Dig exit", ERROR, NULL);
+        reportToList("Miner exited.", ERROR, NULL);
     ui->list->addItem("");
     minerActive = false;
     resetMiningButton();
@@ -232,9 +232,9 @@ void MiningPage::minerStarted()
 {
     if (!minerActive)
         if (getMiningType() == ClientModel::SoloMining)
-            reportToList("Solo dig start", ERROR, NULL);
+            reportToList("Solo mining started.", ERROR, NULL);
         else
-            reportToList("Dig start", STARTED, NULL);
+            reportToList("Miner started. You might not see any output for a few minutes.", STARTED, NULL);
     minerActive = true;
     resetMiningButton();
     model->setMining(getMiningType(), true, initThreads, 0);
@@ -381,6 +381,6 @@ void MiningPage::debugToggled(bool checked)
 
 void MiningPage::resetMiningButton()
 {
-    ui->startButton->setText(minerActive ? "Stop Dig" : "Start Dig");
+    ui->startButton->setText(minerActive ? "Stop Mining" : "Start Mining");
     enableMiningControls(!minerActive);
 }

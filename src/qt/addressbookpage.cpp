@@ -17,7 +17,7 @@
 #include "qrcodedialog.h"
 #endif
 
-AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWiTIPt *parent) :
+AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddressBookPage),
     model(0),
@@ -287,7 +287,7 @@ void AddressBookPage::done(int retval)
     QTableView *table = ui->tableView;
     if(!table->selectionModel() || !table->model())
         return;
-    // When this is a tab/wiTIPt and not a model dialog, ignore "done"
+    // When this is a tab/widget and not a model dialog, ignore "done"
     if(mode == ForEditing)
         return;
 

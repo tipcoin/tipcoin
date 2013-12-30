@@ -19,7 +19,7 @@ public:
     /** Create a new notificator.
        @note Ownership of trayIcon is not transferred to this object.
     */
-    Notificator(const QString &programName=QString(), QSystemTrayIcon *trayIcon=0, QWiTIPt *parent=0);
+    Notificator(const QString &programName=QString(), QSystemTrayIcon *trayIcon=0, QWidget *parent=0);
     ~Notificator();
 
     // Message class
@@ -44,7 +44,7 @@ public slots:
                 const QIcon &icon = QIcon(), int millisTimeout = 10000);
 
 private:
-    QWiTIPt *parent;
+    QWidget *parent;
     enum Mode {
         None,        /**< Ignore informational notifications, and show a modal pop-up dialog for Critical notifications. */
         Freedesktop, /**< Use DBus org.freedesktop.Notifications */

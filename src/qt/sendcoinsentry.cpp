@@ -10,7 +10,7 @@
 #include <QApplication>
 #include <QClipboard>
 
-SendCoinsEntry::SendCoinsEntry(QWiTIPt *parent) :
+SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
     QFrame(parent),
     ui(new Ui::SendCoinsEntry),
     model(0)
@@ -23,12 +23,12 @@ SendCoinsEntry::SendCoinsEntry(QWiTIPt *parent) :
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
-    ui->payTo->setPlaceholderText(tr("Enter a tipcoin address (starts with D)"));
+    ui->payTo->setPlaceholderText(tr("Enter a TIP address (they start with an S)"));
 #endif
     setFocusPolicy(Qt::TabFocus);
     setFocusProxy(ui->payTo);
 
-    GUIUtil::setupAddressWiTIPt(ui->payTo, this);
+    GUIUtil::setupAddressWidget(ui->payTo, this);
 }
 
 SendCoinsEntry::~SendCoinsEntry()
@@ -135,13 +135,13 @@ SendCoinsRecipient SendCoinsEntry::getValue()
     return rv;
 }
 
-QWiTIPt *SendCoinsEntry::setupTabChain(QWiTIPt *prev)
+QWidget *SendCoinsEntry::setupTabChain(QWidget *prev)
 {
-    QWiTIPt::setTabOrder(prev, ui->payTo);
-    QWiTIPt::setTabOrder(ui->payTo, ui->addressBookButton);
-    QWiTIPt::setTabOrder(ui->addressBookButton, ui->pasteButton);
-    QWiTIPt::setTabOrder(ui->pasteButton, ui->deleteButton);
-    QWiTIPt::setTabOrder(ui->deleteButton, ui->addAsLabel);
+    QWidget::setTabOrder(prev, ui->payTo);
+    QWidget::setTabOrder(ui->payTo, ui->addressBookButton);
+    QWidget::setTabOrder(ui->addressBookButton, ui->pasteButton);
+    QWidget::setTabOrder(ui->pasteButton, ui->deleteButton);
+    QWidget::setTabOrder(ui->deleteButton, ui->addAsLabel);
     return ui->payAmount->setupTabChain(ui->addAsLabel);
 }
 

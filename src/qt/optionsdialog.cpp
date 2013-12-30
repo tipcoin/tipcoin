@@ -19,10 +19,10 @@
 #include <QPushButton>
 #include <QRegExp>
 #include <QRegExpValidator>
-#include <QTabWiTIPt>
-#include <QWiTIPt>
+#include <QTabWidget>
+#include <QWidget>
 
-OptionsDialog::OptionsDialog(QWiTIPt *parent) :
+OptionsDialog::OptionsDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::OptionsDialog),
     model(0),
@@ -93,9 +93,9 @@ OptionsDialog::OptionsDialog(QWiTIPt *parent) :
     connect(ui->connectSocks, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning_Proxy()));
     connect(ui->lang, SIGNAL(activated(int)), this, SLOT(showRestartWarning_Lang()));
 
-    /* WiTIPt-to-option mapper */
+    /* Widget-to-option mapper */
     mapper = new MonitoredDataMapper(this);
-    mapper->setSubmitPolicy(QDataWiTIPtMapper::ManualSubmit);
+    mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
     mapper->setOrientation(Qt::Vertical);
 
     /* enable save buttons when data modified */

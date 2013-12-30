@@ -103,7 +103,7 @@ void RPCExecutor::request(const QString &command)
     }
 }
 
-RPCConsole::RPCConsole(QWiTIPt *parent) :
+RPCConsole::RPCConsole(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::RPCConsole),
     historyPtr(0)
@@ -186,7 +186,7 @@ static QString categoryClass(int category)
 
 void RPCConsole::clear()
 {
-    ui->messagesWiTIPt->clear();
+    ui->messagesWidget->clear();
     ui->lineEdit->clear();
     ui->lineEdit->setFocus();
 
@@ -194,14 +194,14 @@ void RPCConsole::clear()
     // (when using width/height on an img, Qt uses nearest instead of linear interpolation)
     for(int i=0; ICON_MAPPING[i].url; ++i)
     {
-        ui->messagesWiTIPt->document()->addResource(
+        ui->messagesWidget->document()->addResource(
                     QTextDocument::ImageResource,
                     QUrl(ICON_MAPPING[i].url),
                     QImage(ICON_MAPPING[i].source).scaled(ICON_SIZE, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
 
     // Set default style sheet
-    ui->messagesWiTIPt->document()->setDefaultStyleSheet(
+    ui->messagesWidget->document()->setDefaultStyleSheet(
                 "table { }"
                 "td.time { color: #808080; padding-top: 3px; } "
                 "td.message { font-family: Monospace; font-size: 12px; } "
@@ -228,7 +228,7 @@ void RPCConsole::message(int category, const QString &message, bool html)
     else
         out += GUIUtil::HtmlEscape(message, true);
     out += "</td></tr></table>";
-    ui->messagesWiTIPt->append(out);
+    ui->messagesWidget->append(out);
 }
 
 void RPCConsole::setNumConnections(int count)
@@ -309,9 +309,9 @@ void RPCConsole::startExecutor()
     thread->start();
 }
 
-void RPCConsole::on_tabWiTIPt_currentChanged(int index)
+void RPCConsole::on_tabWidget_currentChanged(int index)
 {
-    if(ui->tabWiTIPt->wiTIPt(index) == ui->tab_console)
+    if(ui->tabWidget->widget(index) == ui->tab_console)
     {
         ui->lineEdit->setFocus();
     }
@@ -324,7 +324,7 @@ void RPCConsole::on_openDebugLogfileButton_clicked()
 
 void RPCConsole::scrollToEnd()
 {
-    QScrollBar *scrollbar = ui->messagesWiTIPt->verticalScrollBar();
+    QScrollBar *scrollbar = ui->messagesWidget->verticalScrollBar();
     scrollbar->setValue(scrollbar->maximum());
 }
 
